@@ -1,25 +1,16 @@
-function calcularTMB() {
-    let genero = prompt("Digite o seu gênero (M para masculino, F para feminino):").toUpperCase();
-    let peso = parseFloat(prompt("Digite o seu peso em kg:"));
-    let altura = parseFloat(prompt("Digite a sua altura em cm:"));
-    let idade = parseInt(prompt("Digite a sua idade em anos:"));
-    
-    if (isNaN(peso) || isNaN(altura) || isNaN(idade)) {
-        alert("Por favor, insira valores válidos.");
-        return;
-    }
-    
-    let tmb;
-    if (genero === "M") {
-        tmb = (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
-    } else if (genero === "F") {
-        tmb = (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
-    } else {
-        alert("Gênero inválido. Digite M para masculino ou F para feminino.");
-        return;
-    }
-    
-    alert(`A sua Taxa Metabólica Basal (TMB) é de aproximadamente ${tmb.toFixed(2)} calorias por dia.`);
-}
+generos=["M","F"];
 
-calcularTMB();
+genero= prompt("Qual é o seu género? (M/F)");
+
+if (generos.includes(genero)) {
+    altura= +prompt("Qual é a sua altura?");
+    peso = +prompt("Qual é o seu peso?");
+    idade = +prompt("Qual é a sua idade?");
+
+    if (genero=="M") {
+        tbm=(10*peso)+(6.25*altura)-(5*idade)+5;
+    } else {
+        tbm=(10*peso)+(6.25*altura)-(5*idade)-161;
+    }
+}
+console.log(`O seu TMB é: $(tbm)`);
