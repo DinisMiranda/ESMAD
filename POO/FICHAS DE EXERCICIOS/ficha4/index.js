@@ -37,3 +37,26 @@ function VerificarNivel(nivel) {
     }
     alert(texto);
 }
+
+function pesquisarColecionaveis(colecionavel){
+    let tabelaColecionavel = listUsers.filter(element => element.colecionaveis == colecionavel);
+    let texto = "users com o coleccionavel ${colecionavel}:"
+    for (let jogador of tabelaColecionavel) {
+        texto += `
+        ${jogador.nome}`
+    }
+    alert(texto);
+}
+
+function mostrarJogadores(coleccionavel) {
+    let tabelaColecionavel = listUsers.filter(element => element.colecionaveis == coleccionavel);
+    let texto = "users com o coleccionavel ${coleccionavel}:"
+    for (let jogador of tabelaColecionavel) {
+        texto += `
+        ${jogador.nome}`
+    }
+    alert(texto);
+
+}
+
+
