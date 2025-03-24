@@ -1,0 +1,40 @@
+2. Estatística Descritiva vs. Inferencial
+Objetivo: Diferenciar descrição de inferência.
+
+Exercícios:
+A) Caso Prático:
+
+Descritiva:
+
+Analise as notas de uma turma de 30 alunos (dados fictícios): calcule média, moda, desvio padrão.
+
+Inferencial:
+
+Use uma amostra aleatória de 10 alunos para estimar a nota média da turma inteira.
+ Compare com a média real.
+
+==============================================================================================
+
+3. Amostragem e Distribuições Amostrais
+Objetivo: Entender como amostras representam populações.
+
+Exercícios:
+A) Amostragem Aleatória:
+
+Pegue uma lista de 100 números (ex.: idades de 1 a 100).
+
+Selecione 3 amostras aleatórias de tamanho 10.
+
+Calcule a média de cada amostra. Compare com a média real (50.5).
+
+B) Teorema Central do Limite (TCL):
+
+Simule em Python/R:
+
+Gere uma população não-normal (ex.: distribuição exponencial).
+
+Tire 1000 amostras de tamanho 40 e calcule a média de cada.
+
+Plote o histograma das médias: mesmo a população sendo não-normal, as médias serão normais!
+
+==============================================================================================
