@@ -1,0 +1,93 @@
+<div style="border: 2px solid #4CAF50; border-radius: 10px; padding: 15px; background-color: #f8f9fa; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #4CAF50; text-align: center;">Resumo: Introdução ao DOM</h2>
+    
+    <h3 style="color: #2E86C1;">🔹 O que é o DOM?</h3>
+    <p>O <strong>Document Object Model (DOM)</strong> é uma interface de programação que representa a estrutura de documentos HTML/XML como uma árvore de objetos, permitindo interação dinâmica com a página.</p>
+    
+    <h3 style="color: #2E86C1;">🔹 Componentes Principais</h3>
+    <ol>
+      <li><strong>Window</strong>: Objeto raiz que representa a janela do browser
+        <ul>
+          <li><strong>DOM</strong>: Manipulação do conteúdo da página</li>
+          <li><strong>BOM</strong>: Recursos do browser (navegação, histórico, etc.)</li>
+          <li><strong>JavaScript</strong>: Objetos nativos da linguagem</li>
+        </ul>
+      </li>
+    </ol>
+    
+    <h3 style="color: #2E86C1;">🔹 Estrutura do DOM</h3>
+    <p>Hierarquia de nós (nodes):</p>
+    <ul>
+      <li><strong>Document node</strong>: Nó raiz</li>
+      <li><strong>Element nodes</strong>: Tags HTML</li>
+      <li><strong>Text nodes</strong>: Conteúdo textual</li>
+      <li><strong>Comment nodes</strong>: Comentários</li>
+    </ul>
+    
+    <h3 style="color: #2E86C1;">🔹 Seleção de Elementos</h3>
+    <p>Métodos principais:</p>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px; overflow-x: auto;">
+  // Por ID
+  document.getElementById('id')
+  
+  // Por nome
+  document.getElementsByName('name')
+  
+  // Por tag
+  document.getElementsByTagName('div')
+  
+  // Por classe
+  document.getElementsByClassName('classe')
+  
+  // Seletores CSS
+  document.querySelector('seletor') // Primeiro elemento
+  document.querySelectorAll('seletor') // Todos elementos</pre>
+    
+    <h3 style="color: #2E86C1;">🔹 Manipulação de Elementos</h3>
+    <ul>
+      <li><strong>Conteúdo</strong>: <code>element.innerHTML = 'novo conteúdo'</code></li>
+      <li><strong>Estilo</strong>: <code>element.style.property = 'valor'</code></li>
+      <li><strong>Valores</strong>: <code>element.value = 'novo valor'</code></li>
+    </ul>
+    
+    <h3 style="color: #2E86C1;">🔹 Navegação na Árvore DOM</h3>
+    <p>Propriedades de navegação:</p>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px; overflow-x: auto;">
+  element.parentNode // Nó pai
+  element.childNodes // Lista de filhos
+  element.firstChild // Primeiro filho
+  element.lastChild // Último filho
+  element.nextSibling // Próximo irmão
+  element.previousSibling // Irmão anterior</pre>
+    
+    <h3 style="color: #2E86C1;">🔹 Gestão de Nós</h3>
+    <ul>
+      <li><strong>Criação</strong>:
+        <pre style="background-color: #eee; padding: 10px; border-radius: 5px; overflow-x: auto;">
+  document.createElement('tag')
+  document.createTextNode('texto')
+  parent.appendChild(child)</pre>
+      </li>
+      <li><strong>Substituição</strong>: <code>parent.replaceChild(new, old)</code></li>
+      <li><strong>Remoção</strong>: <code>parent.removeChild(child)</code></li>
+    </ul>
+    
+    <h3 style="color: #2E86C1;">🔹 Validação de Formulários</h3>
+    <ul>
+      <li><strong>HTML</strong>: Atributos como <code>required</code>, <code>type</code>, <code>pattern</code></li>
+      <li><strong>JavaScript</strong>:
+        <pre style="background-color: #eee; padding: 10px; border-radius: 5px; overflow-x: auto;">
+  form.addEventListener('submit', (e) => {
+    e.preventDefault() // Evita envio padrão
+    // Validação personalizada
+  })</pre>
+      </li>
+    </ul>
+    
+    <h3 style="color: #2E86C1;">🔹 Boas Práticas</h3>
+    <ul>
+      <li>Prefira <code>querySelector</code> para seleção flexível</li>
+      <li>Use template strings para construção complexa de HTML</li>
+      <li>Modere o uso direto de manipulação de nós, preferindo innerHTML quando apropriado</li>
+    </ul>
+  </div>

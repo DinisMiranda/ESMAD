@@ -1,3 +1,61 @@
+1. Análise Exploratória de Dados (EDA)
+É a primeira etapa da análise, onde você:
+
+Organiza os dados: Identifica missing values, outliers.
+
+Visualiza os dados: Usa gráficos para padrões.
+
+Resume os dados: Calcula medidas como média e desvio padrão.
+
+Exemplo Prático:
+Se você tem dados de alturas de alunos, um histograma mostra se a distribuição é simétrica ou assimétrica.
+
+2. Estatística Descritiva vs. Inferencial
+Descritiva: "Qual a média de idade nesta sala?" (dados conhecidos).
+
+Inferencial: "Qual a média de idade no Brasil?" (usa amostra para estimar).
+
+3. Amostragem e Distribuições Amostrais
+Amostragem: Selecionar um subconjunto representativo da população.
+
+Distribuição Amostral: Se você calcular a média de 1000 amostras, essas médias formarão uma distribuição normal (graças ao Teorema Central do Limite).
+
+Por que isso importa?
+Para fazer inferências confiáveis, você precisa entender como as estatísticas (como 
+x
+ˉ
+x
+ˉ
+ ) se comportam em diferentes amostras.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==============================================================================================
+
+
+
+
+
+
+
+
+
+
+
 2. Estatística Descritiva vs. Inferencial
 Objetivo: Diferenciar descrição de inferência.
 
