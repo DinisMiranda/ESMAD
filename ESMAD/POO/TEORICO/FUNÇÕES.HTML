@@ -1,0 +1,95 @@
+<div style="border: 2px solid #4CAF50; border-radius: 10px; padding: 15px; background-color: #f8f9fa; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #4CAF50; text-align: center;">Resumo: Funções em JavaScript</h2>
+  
+    <h3 style="color: #2E86C1;">🔹 1. Declaração de Funções</h3>
+    <p>Blocos de código reutilizáveis que executam tarefas específicas.</p>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Função declarativa
+  function nomeFunção(parâmetros) {
+    // corpo da função
+  }</pre>
+  
+    <h3 style="color: #2E86C1;">🔹 2. Nomenclatura</h3>
+    <p><strong>Boas práticas:</strong></p>
+    <ul>
+      <li>Usar verbos no início: <code>show</code>, <code>get</code>, <code>calc</code>, <code>create</code>, <code>check</code></li>
+      <li>Nomes curtos e descritivos</li>
+      <li>Uma função = uma tarefa</li>
+      <li>Sempre incluir comentários</li>
+    </ul>
+  
+    <h3 style="color: #2E86C1;">🔹 3. Parâmetros e Argumentos</h3>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+      <div>
+        <p><strong>Parâmetros padrão:</strong></p>
+        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  function greet(name = "Visitante") {
+    return `Olá ${name}`;
+  }</pre>
+      </div>
+      <div>
+        <p><strong>Parâmetros rest:</strong></p>
+        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  function sum(...numbers) {
+    return numbers.reduce((a, b) => a + b);
+  }</pre>
+      </div>
+    </div>
+  
+    <h3 style="color: #2E86C1;">🔹 4. Retorno de Valores</h3>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  function square(x) {
+    return x * x; // Retorna o valor
+  }
+  let result = square(5); // 25</pre>
+    <p>Pode ter múltiplos <code>return</code> condicionais.</p>
+  
+    <h3 style="color: #2E86C1;">🔹 5. Funções de Expressão</h3>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Atribuída a variável
+  const greet = function(name) {
+    return `Olá ${name}`;
+  };
+  
+  // IIFE (Immediately Invoked Function Expression)
+  (function() {
+    console.log('Executada imediatamente');
+  })();</pre>
+  
+    <h3 style="color: #2E86C1;">🔹 6. Arrow Functions</h3>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+      <div>
+        <p><strong>Sintaxe básica:</strong></p>
+        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Forma completa
+  const sum = (a, b) => {
+    return a + b;
+  };
+  
+  // Forma reduzida
+  const square = x => x * x;</pre>
+      </div>
+      <div>
+        <p><strong>Características:</strong></p>
+        <ul>
+          <li>Sem <code>function</code> keyword</li>
+          <li>Sem <code>this</code> próprio</li>
+          <li>Sem <code>arguments</code> object</li>
+          <li>Ótimas para callbacks</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 10px; margin-top: 15px;">
+      <p><strong>Comparativo:</strong></p>
+      <ul>
+        <li><strong>Declaração:</strong> Hoisting permitido, mais legível</li>
+        <li><strong>Expressão:</strong> Mais flexível, IIFE possível</li>
+        <li><strong>Arrow:</strong> Sintaxe concisa, melhor para callbacks</li>
+      </ul>
+    </div>
+  
+    <div style="margin-top: 20px; background-color: #FFF3CD; border-left: 6px solid #FFC107; padding: 10px;">
+      <p><strong>Dica:</strong> Use arrow functions para métodos curtos e callbacks, e funções declarativas para funções mais complexas que precisam de hoisting.</p>
+    </div>
+  </div>

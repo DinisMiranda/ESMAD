@@ -1,0 +1,126 @@
+<div style="border: 2px solid #4CAF50; border-radius: 10px; padding: 15px; background-color: #f8f9fa; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #4CAF50; text-align: center;">Resumo: Métodos para Numbers e Strings</h2>
+  
+    <h3 style="color: #2E86C1;">🔹 1. Métodos para Numbers</h3>
+    
+    <h4 style="color: #28B463;">Conversão e Formatação</h4>
+    <table style="width:100%; border-collapse: collapse; margin-bottom: 15px;">
+      <tr style="background-color: #4CAF50; color: white;">
+        <th style="padding: 8px; border: 1px solid #ddd;">Método</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">Descrição</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">Exemplo</th>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>toString()</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Converte para string</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>(123).toString()</code></td>
+      </tr>
+      <tr style="background-color: #f2f2f2;">
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>toFixed(n)</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">n casas decimais</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>3.1415.toFixed(2)</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>toExponential(n)</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Notação científica</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>1234.toExponential(2)</code></td>
+      </tr>
+      <tr style="background-color: #f2f2f2;">
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>parseInt()</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Converte para inteiro</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>parseInt("10")</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>parseFloat()</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Converte para decimal</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>parseFloat("10.5")</code></td>
+      </tr>
+    </table>
+  
+    <h4 style="color: #28B463;">Métodos do Objeto Math</h4>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+      <div>
+        <ul>
+          <li><code>Math.round(x)</code>: Arredonda</li>
+          <li><code>Math.ceil(x)</code>: Arredonda para cima</li>
+          <li><code>Math.floor(x)</code>: Arredonda para baixo</li>
+          <li><code>Math.trunc(x)</code>: Remove decimais</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><code>Math.random()</code>: Número aleatório [0,1)</li>
+          <li><code>Math.max(...n)</code>: Maior valor</li>
+          <li><code>Math.min(...n)</code>: Menor valor</li>
+          <li><code>Math.pow(x,y)</code>: Potência (x^y)</li>
+        </ul>
+      </div>
+    </div>
+  
+    <h3 style="color: #2E86C1;">🔹 2. Métodos para Strings</h3>
+    
+    <h4 style="color: #28B463;">Manipulação Básica</h4>
+    <table style="width:100%; border-collapse: collapse; margin-bottom: 15px;">
+      <tr style="background-color: #4CAF50; color: white;">
+        <th style="padding: 8px; border: 1px solid #ddd;">Método</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">Descrição</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">Exemplo</th>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>toUpperCase()</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Maiúsculas</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>"texto".toUpperCase()</code></td>
+      </tr>
+      <tr style="background-color: #f2f2f2;">
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>toLowerCase()</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Minúsculas</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>"TEXTO".toLowerCase()</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>concat()</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Concatena strings</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>"a".concat("b")</code></td>
+      </tr>
+      <tr style="background-color: #f2f2f2;">
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>charAt(i)</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Caractere na posição i</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>"abc".charAt(1)</code></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>at(i)</code></td>
+        <td style="padding: 8px; border: 1px solid #ddd;">Similar ao charAt</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><code>"abc".at(-1)</code></td>
+      </tr>
+    </table>
+  
+    <h4 style="color: #28B463;">Pesquisa e Extração</h4>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+      <div>
+        <ul>
+          <li><code>indexOf("x")</code>: Posição da primeira ocorrência</li>
+          <li><code>lastIndexOf("x")</code>: Posição da última ocorrência</li>
+          <li><code>includes("x")</code>: Verifica se contém</li>
+          <li><code>startsWith("x")</code>: Verifica início</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><code>endsWith("x")</code>: Verifica final</li>
+          <li><code>slice(inicio,fim)</code>: Extrai parte da string</li>
+          <li><code>substring(inicio,fim)</code>: Similar ao slice</li>
+          <li><code>substr(inicio,length)</code>: Extrai por comprimento</li>
+        </ul>
+      </div>
+    </div>
+  
+    <h4 style="color: #28B463;">Modificação</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  "Hello World".replace("World", "JS")   // "Hello JS"
+  "a-b-c".split("-")                     // ["a", "b", "c"]
+  "  texto  ".trim()                     // "texto"
+  "abc".repeat(3)                        // "abcabcabc"</pre>
+  
+    <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 10px; margin-top: 15px;">
+      <p><strong>Dica:</strong> Use <code>template strings</code> com crases (` `) para strings multi-linha e interpolação: <code>`Olá ${nome}`</code></p>
+    </div>
+  </div>

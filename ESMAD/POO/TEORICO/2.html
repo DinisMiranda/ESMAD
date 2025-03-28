@@ -1,0 +1,92 @@
+<div style="border: 2px solid #4CAF50; border-radius: 10px; padding: 15px; background-color: #f8f9fa; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #4CAF50; text-align: center;">Resumo: Estruturas de Controle em JavaScript</h2>
+  
+    <h3 style="color: #2E86C1;">🔹 1. Estruturas Condicionais</h3>
+    
+    <h4 style="color: #28B463;">If/Else</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  if (condição) {
+    // código se verdadeiro
+  } else {
+    // código se falso
+  }</pre>
+  
+    <h4 style="color: #28B463;">Else If</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  if (condição1) {
+    // código 1
+  } else if (condição2) {
+    // código 2
+  } else {
+    // código padrão
+  }</pre>
+  
+    <h4 style="color: #28B463;">Operador Ternário</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  condição ? expressãoSeVerdadeiro : expressãoSeFalso;</pre>
+  
+    <h4 style="color: #28B463;">Switch</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  switch(expressão) {
+    case valor1:
+      // código 1
+      break;
+    case valor2:
+      // código 2
+      break;
+    default:
+      // código padrão
+  }</pre>
+    <p><strong>Observação:</strong> O <code>break</code> é essencial para evitar a execução em cascata dos casos.</p>
+  
+    <h3 style="color: #2E86C1;">🔹 2. Estruturas Iterativas</h3>
+    
+    <h4 style="color: #28B463;">For Loop</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  for (let i = 0; i < 10; i++) {
+    // código a repetir
+  }</pre>
+  
+    <h4 style="color: #28B463;">For...In (para objetos)</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  for (let chave in objeto) {
+    // código usando objeto[chave]
+  }</pre>
+  
+    <h4 style="color: #28B463;">For...Of (para iteráveis)</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  for (let valor of array) {
+    // código usando valor
+  }</pre>
+  
+    <h4 style="color: #28B463;">While</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  while (condição) {
+    // código enquanto condição for verdadeira
+  }</pre>
+  
+    <h4 style="color: #28B463;">Do...While</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  do {
+    // código executado pelo menos uma vez
+  } while (condição);</pre>
+  
+    <h4 style="color: #28B463;">Controle de Loops</h4>
+    <ul>
+      <li><code>break</code> - Interrompe completamente o loop</li>
+      <li><code>continue</code> - Pula para a próxima iteração</li>
+    </ul>
+  
+    <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 10px; margin-top: 15px;">
+      <p><strong>Dica:</strong> Use <code>for...of</code> para arrays e <code>for...in</code> para objetos. O <code>forEach()</code> também é uma alternativa moderna para arrays.</p>
+    </div>
+  
+    <div style="margin-top: 20px; background-color: #FFF3CD; border-left: 6px solid #FFC107; padding: 10px;">
+      <p><strong>Comparativo:</strong></p>
+      <ul>
+        <li><strong>For</strong>: Melhor quando se sabe o número exato de iterações</li>
+        <li><strong>While</strong>: Ideal quando a condição de parada é complexa</li>
+        <li><strong>Do...While</strong>: Garante pelo menos uma execução</li>
+      </ul>
+    </div>
+  </div>

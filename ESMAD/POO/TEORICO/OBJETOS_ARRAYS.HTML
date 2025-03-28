@@ -1,0 +1,120 @@
+<div style="border: 2px solid #4CAF50; border-radius: 10px; padding: 15px; background-color: #f8f9fa; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #4CAF50; text-align: center;">Resumo: Objetos & Arrays de Objetos</h2>
+  
+    <h3 style="color: #2E86C1;">🔹 1. Criação de Objetos</h3>
+    
+    <h4 style="color: #28B463;">Sintaxes de Criação</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Literal (mais comum)
+  const pessoa = {
+    nome: "João",
+    idade: 30,
+    profissao: "Desenvolvedor"
+  };
+  
+  // Usando new Object()
+  const carro = new Object();
+  carro.marca = "Toyota";
+  carro.modelo = "Corolla";
+  
+  // Constructor function
+  function Animal(nome, tipo) {
+    this.nome = nome;
+    this.tipo = tipo;
+  }
+  const gato = new Animal("Mimi", "Felino");</pre>
+  
+    <h3 style="color: #2E86C1;">🔹 2. Propriedades de Objetos</h3>
+    
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+      <div>
+        <p><strong>Acesso:</strong></p>
+        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Notação de ponto
+  pessoa.nome; // "João"
+  
+  // Notação de colchetes
+  pessoa['idade']; // 30</pre>
+      </div>
+      <div>
+        <p><strong>Manipulação:</strong></p>
+        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Adicionar
+  pessoa.email = "joao@exemplo.com";
+  
+  // Remover
+  delete pessoa.profissao;
+  
+  // Verificar existência
+  "nome" in pessoa; // true</pre>
+      </div>
+    </div>
+  
+    <h4 style="color: #28B463;">Estruturas Complexas</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Objeto com array
+  const aluno = {
+    nome: "Maria",
+    notas: [15, 18, 17]
+  };
+  
+  // Objeto com sub-objeto
+  const produto = {
+    nome: "Telemóvel",
+    especificacoes: {
+      ram: "8GB",
+      armazenamento: "128GB"
+    }
+  };</pre>
+  
+    <h3 style="color: #2E86C1;">🔹 3. Métodos em Objetos</h3>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  const conta = {
+    saldo: 1000,
+    depositar: function(valor) {
+      this.saldo += valor;
+    },
+    sacar(valor) { // Forma abreviada
+      this.saldo -= valor;
+    }
+  };
+  
+  conta.depositar(500); // saldo = 1500
+  conta.sacar(200);     // saldo = 1300</pre>
+  
+    <h3 style="color: #2E86C1;">🔹 4. Arrays de Objetos</h3>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  const pessoas = [
+    { nome: "Ana", idade: 25 },
+    { nome: "Carlos", idade: 32 }
+  ];
+  
+  // Adicionar novo objeto
+  pessoas.push({ nome: "Beatriz", idade: 28 });
+  
+  // Acessar propriedades
+  pessoas[0].nome; // "Ana"
+  
+  // Iteração
+  pessoas.forEach(pessoa => {
+    console.log(`${pessoa.nome} tem ${pessoa.idade} anos`);
+  });</pre>
+  
+    <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 10px; margin-top: 15px;">
+      <p><strong>Dicas Avançadas:</strong></p>
+      <ul>
+        <li>Use <code>Object.keys(obj)</code> para listar todas as propriedades</li>
+        <li><code>Object.freeze(obj)</code> previne modificações no objeto</li>
+        <li>Destructuring: <code>const { nome, idade } = pessoa;</code></li>
+      </ul>
+    </div>
+  
+    <div style="margin-top: 20px; background-color: #FFF3CD; border-left: 6px solid #FFC107; padding: 10px;">
+      <p><strong>Boas Práticas:</strong></p>
+      <ul>
+        <li>Nomes descritivos para propriedades</li>
+        <li>Agrupe dados relacionados em objetos</li>
+        <li>Use arrays de objetos para coleções homogêneas</li>
+      </ul>
+    </div>
+  </div>
