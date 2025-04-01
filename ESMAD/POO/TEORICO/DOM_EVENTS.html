@@ -1,0 +1,104 @@
+<div style="border: 2px solid #4CAF50; border-radius: 10px; padding: 15px; background-color: #f8f9fa; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #4CAF50; text-align: center;">Resumo: DOM Events em JavaScript</h2>
+  
+    <h3 style="color: #2E86C1;">🔹 1. Introdução aos Eventos</h3>
+    <p>Eventos são ações que ocorrem no navegador e podem ser capturados para executar funções JavaScript.</p>
+    
+    <h4 style="color: #28B463;">Gerenciamento Básico</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Adicionar evento
+  elemento.addEventListener('click', function() {
+    console.log('Elemento clicado!');
+  });
+  
+  // Remover evento
+  const handler = () => console.log('Clicado');
+  elemento.addEventListener('click', handler);
+  elemento.removeEventListener('click', handler);</pre>
+  
+    <h3 style="color: #2E86C1;">🔹 2. Tipos de Eventos</h3>
+    
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+      <div>
+        <p><strong>Eventos de Janela:</strong></p>
+        <ul>
+          <li><code>load</code>: Página carregada</li>
+          <li><code>resize</code>: Redimensionamento</li>
+          <li><code>scroll</code>: Rolagem da página</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Eventos de Mouse:</strong></p>
+        <ul>
+          <li><code>click</code>: Clique simples</li>
+          <li><code>dblclick</code>: Duplo clique</li>
+          <li><code>mouseover</code>/<code>mouseout</code></li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Eventos de Teclado:</strong></p>
+        <ul>
+          <li><code>keydown</code>/<code>keyup</code></li>
+          <li><code>keypress</code> (obsoleto)</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Eventos de Formulário:</strong></p>
+        <ul>
+          <li><code>submit</code></li>
+          <li><code>change</code></li>
+          <li><code>focus</code>/<code>blur</code></li>
+        </ul>
+      </div>
+    </div>
+  
+    <h3 style="color: #2E86C1;">🔹 3. Objeto Event</h3>
+    
+    <h4 style="color: #28B463;">Propriedades Principais</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  elemento.addEventListener('click', function(event) {
+    console.log(event.type);      // "click"
+    console.log(event.target);    // Elemento que disparou o evento
+    console.log(event.clientX);   // Posição X do mouse
+    console.log(event.key);       // Tecla pressionada (keyboard events)
+  });</pre>
+  
+    <h4 style="color: #28B463;">Métodos Importantes</h4>
+    <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  // Prevenir comportamento padrão
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Validação do formulário
+  });
+  
+  // Parar propagação
+  botao.addEventListener('click', function(event) {
+    event.stopPropagation();
+    // Não dispara eventos de elementos pais
+  });</pre>
+  
+    <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 10px; margin-top: 15px;">
+      <p><strong>Boas Práticas:</strong></p>
+      <ul>
+        <li>Use <code>event delegation</code> para elementos dinâmicos</li>
+        <li>Prefira <code>addEventListener</code> a atributos HTML como <code>onclick</code></li>
+        <li>Remova listeners quando não forem mais necessários</li>
+      </ul>
+    </div>
+  
+    <div style="margin-top: 20px; background-color: #FFF3CD; border-left: 6px solid #FFC107; padding: 10px;">
+      <p><strong>Dica Avançada:</strong> Para eventos que ocorrem muitas vezes (como <code>scroll</code> ou <code>resize</code>, use <code>debouncing</code> para melhorar performance:</p>
+      <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
+  function debounce(func, timeout = 300) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => func.apply(this, args), timeout);
+    };
+  }
+  
+  window.addEventListener('resize', debounce(() => {
+    console.log('Resize debounced');
+  }));</pre>
+    </div>
+  </div>
