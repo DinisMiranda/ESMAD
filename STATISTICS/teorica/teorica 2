@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatística Inferencial - Guia Completo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: #eaf2f8;
+            padding: 8px;
+            border-left: 4px solid #3498db;
+        }
+        h3 {
+            color: #2980b9;
+        }
+        .teoria {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .exemplo {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-left: 4px solid #1abc9c;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .exercicio {
+            background-color: #fef9e7;
+            padding: 15px;
+            border-left: 4px solid #f39c12;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .resolucao {
+            background-color: #eafaf1;
+            padding: 15px;
+            border-left: 4px solid #27ae60;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+            display: none;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .formula {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estatística Inferencial: Guia Completo</h1>
+    
+    <section id="estimacao-pontual">
+        <h2>1. Estimação Pontual</h2>
+        
+        <div class="teoria">
+            <h3>Conceitos Fundamentais</h3>
+            <p><strong>Estimador:</strong> Uma estatística (como a média amostral) usada para estimar um parâmetro populacional.</p>
+            <p><strong>Estimativa:</strong> O valor específico calculado a partir dos dados amostrais.</p>
+            
+            <h3>Propriedades dos Estimadores</h3>
+            <ul>
+                <li><strong>Não-tendenciosidade:</strong> Um estimador é não-tendencioso se sua esperança é igual ao parâmetro populacional.</li>
+                <li><strong>Eficiência:</strong> Entre estimadores não-tendenciosos, o mais eficiente é aquele com menor variância.</li>
+                <li><strong>Consistência:</strong> Quando o tamanho da amostra aumenta, o estimador converge para o parâmetro verdadeiro.</li>
+            </ul>
+            
+            <div class="formula">
+                Não-tendenciosidade: E[θ̂] = θ
+            </div>
+        </div>
+        
+        <div class="exemplo">
+            <h3>Exemplo Resolvido: Comparando Estimadores</h3>
+            <p>Suponha que temos uma população com média μ = 10 e variância σ² = 4. Considere duas amostras aleatórias:</p>
+            <ul>
+                <li>Amostra 1: [9, 11, 10]</li>
+                <li>Amostra 2: [8, 12, 10]</li>
+            </ul>
+            <p>Calcule a média amostral (estimador não-tendencioso) e a mediana amostral para cada amostra.</p>
+            
+            <button onclick="toggleResolucao('resolucao1')">Mostrar Resolução</button>
+            <div id="resolucao1" class="resolucao">
+                <p><strong>Amostra 1:</strong></p>
+                <ul>
+                    <li>Média: (9 + 11 + 10)/3 = 10</li>
+                    <li>Mediana: 10</li>
+                </ul>
+                <p><strong>Amostra 2:</strong></p>
+                <ul>
+                    <li>Média: (8 + 12 + 10)/3 = 10</li>
+                    <li>Mediana: 10</li>
+                </ul>
+                <p>Neste caso, ambos os estimadores acertaram o valor verdadeiro. Mas em geral, a média amostral é mais eficiente que a mediana para populações normais.</p>
+            </div>
+        </div>
+        
+        <div class="exercicio">
+            <h3>Exercício para Praticar</h3>
+            <p>Considere uma população com distribuição uniforme entre 0 e 10. Você coletou três amostras:</p>
+            <ul>
+                <li>Amostra A: [2, 5, 8]</li>
+                <li>Amostra B: [1, 4, 9]</li>
+                <li>Amostra C: [3, 5, 7]</li>
+            </ul>
+            <p>a) Calcule a média e a mediana para cada amostra.</p>
+            <p>b) Sabendo que a média populacional verdadeira é 5, qual estimador parece mais preciso?</p>
+            
+            <button onclick="toggleResolucao('resolucao2')">Mostrar Resolução</button>
+            <div id="resolucao2" class="resolucao">
+                <p><strong>Resolução:</strong></p>
+                <p><strong>Amostra A:</strong></p>
+                <ul>
+                    <li>Média: (2 + 5 + 8)/3 = 5</li>
+                    <li>Mediana: 5</li>
+                </ul>
+                <p><strong>Amostra B:</strong></p>
+                <ul>
+                    <li>Média: (1 + 4 + 9)/3 ≈ 4.67</li>
+                    <li>Mediana: 4</li>
+                </ul>
+                <p><strong>Amostra C:</strong></p>
+                <ul>
+                    <li>Média: (3 + 5 + 7)/3 = 5</li>
+                    <li>Mediana: 5</li>
+                </ul>
+                <p>b) Neste caso, a média amostral foi mais precisa que a mediana na Amostra B. Para distribuições simétricas como a uniforme, a média geralmente é um bom estimador.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="intervalos-confianca">
+        <h2>2. Intervalos de Confiança</h2>
+        
+        <div class="teoria">
+            <h3>Conceito de Intervalo de Confiança</h3>
+            <p>Um intervalo de confiança (IC) fornece uma faixa de valores plausíveis para um parâmetro populacional, com um certo nível de confiança (ex.: 95%).</p>
+            
+            <h3>Fórmulas Principais</h3>
+            <div class="formula">
+                IC para média (σ conhecido): x̄ ± z<sub>α/2</sub> · (σ/√n)
+            </div>
+            <div class="formula">
+                IC para média (σ desconhecido): x̄ ± t<sub>α/2,n-1</sub> · (s/√n)
+            </div>
+            <div class="formula">
+                IC para proporção: p̂ ± z<sub>α/2</sub> · √(p̂(1-p̂)/n)
+            </div>
+        </div>
+        
+        <div class="exemplo">
+            <h3>Exemplo Resolvido: IC para Média</h3>
+            <p>Uma amostra de 25 estudantes tem altura média de 170cm com desvio padrão de 10cm. Construa um IC 95% para a altura média populacional.</p>
+            
+            <button onclick="toggleResolucao('resolucao3')">Mostrar Resolução</button>
+            <div id="resolucao3" class="resolucao">
+                <p><strong>Dados:</strong></p>
+                <ul>
+                    <li>n = 25</li>
+                    <li>x̄ = 170cm</li>
+                    <li>s = 10cm</li>
+                    <li>Nível de confiança = 95%</li>
+                </ul>
+                <p>Como σ é desconhecido e n < 30, usamos a distribuição t:</p>
+                <p>t<sub>0.025,24</sub> ≈ 2.064</p>
+                <p>Margem de erro = t · (s/√n) = 2.064 · (10/5) ≈ 4.128</p>
+                <p>IC = 170 ± 4.128 = [165.872, 174.128]</p>
+                <p>Interpretação: Temos 95% de confiança que a verdadeira altura média está entre 165.87cm e 174.13cm.</p>
+            </div>
+        </div>
+        
+        <div class="exercicio">
+            <h3>Exercício para Praticar</h3>
+            <p>Em uma pesquisa com 400 eleitores, 160 disseram que votariam no candidato X. Construa um intervalo de confiança de 99% para a proporção real de eleitores que votariam no candidato X.</p>
+            
+            <button onclick="toggleResolucao('resolucao4')">Mostrar Resolução</button>
+            <div id="resolucao4" class="resolucao">
+                <p><strong>Dados:</strong></p>
+                <ul>
+                    <li>n = 400</li>
+                    <li>x = 160</li>
+                    <li>p̂ = 160/400 = 0.4</li>
+                    <li>Nível de confiança = 99% ⇒ z<sub>0.005</sub> ≈ 2.576</li>
+                </ul>
+                <p>Margem de erro = z · √(p̂(1-p̂)/n) = 2.576 · √(0.4·0.6/400) ≈ 0.063</p>
+                <p>IC = 0.4 ± 0.063 = [0.337, 0.463]</p>
+                <p>Interpretação: Temos 99% de confiança que a verdadeira proporção está entre 33.7% e 46.3%.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testes-hipoteses">
+        <h2>3. Testes de Hipóteses</h2>
+        
+        <div class="teoria">
+            <h3>Estrutura de um Teste de Hipóteses</h3>
+            <ol>
+                <li>Definir H<sub>0</sub> (hipótese nula) e H<sub>1</sub> (hipótese alternativa)</li>
+                <li>Escolher o nível de significância (α)</li>
+                <li>Calcular a estatística de teste</li>
+                <li>Determinar o valor-p ou região crítica</li>
+                <li>Tomar decisão (rejeitar ou não H<sub>0</sub>)</li>
+            </ol>
+            
+            <h3>Teste t para uma Amostra</h3>
+            <div class="formula">
+                t = (x̄ - μ<sub>0</sub>) / (s/√n)
+            </div>
+        </div>
+        
+        <div class="exemplo">
+            <h3>Exemplo Resolvido: Teste t</h3>
+            <p>Um fabricante afirma que suas lâmpadas duram 1000 horas. Uma amostra de 16 lâmpadas teve duração média de 980 horas com desvio padrão de 80 horas. Teste a afirmação do fabricante com α = 5%.</p>
+            
+            <button onclick="toggleResolucao('resolucao5')">Mostrar Resolução</button>
+            <div id="resolucao5" class="resolucao">
+                <p><strong>Passo 1:</strong> Hipóteses</p>
+                <p>H<sub>0</sub>: μ = 1000</p>
+                <p>H<sub>1</sub>: μ ≠ 1000 (teste bilateral)</p>
+                
+                <p><strong>Passo 2:</strong> Estatística de teste</p>
+                <p>t = (980 - 1000) / (80/√16) = -20 / 20 = -1.0</p>
+                
+                <p><strong>Passo 3:</strong> Valor crítico</p>
+                <p>t<sub>0.025,15</sub> ≈ ±2.131</p>
+                
+                <p><strong>Passo 4:</strong> Decisão</p>
+                <p>Como -1.0 está entre -2.131 e +2.131, não rejeitamos H<sub>0</sub>.</p>
+                
+                <p><strong>Conclusão:</strong> Não há evidências suficientes para rejeitar a afirmação do fabricante.</p>
+            </div>
+        </div>
+        
+        <div class="exercicio">
+            <h3>Exercício para Praticar</h3>
+            <p>Uma empresa afirma que seus funcionários ganham em média R$ 3000/mês. Um sindicato suspeita que o salário é menor. Uma amostra de 25 funcionários mostrou média de R$ 2850 com desvio padrão de R$ 500. Realize um teste de hipóteses com α = 1%.</p>
+            
+            <button onclick="toggleResolucao('resolucao6')">Mostrar Resolução</button>
+            <div id="resolucao6" class="resolucao">
+                <p><strong>Passo 1:</strong> Hipóteses</p>
+                <p>H<sub>0</sub>: μ = 3000</p>
+                <p>H<sub>1</sub>: μ < 3000 (teste unilateral à esquerda)</p>
+                
+                <p><strong>Passo 2:</strong> Estatística de teste</p>
+                <p>t = (2850 - 3000) / (500/√25) = -150 / 100 = -1.5</p>
+                
+                <p><strong>Passo 3:</strong> Valor crítico</p>
+                <p>t<sub>0.01,24</sub> ≈ -2.492</p>
+                
+                <p><strong>Passo 4:</strong> Decisão</p>
+                <p>Como -1.5 > -2.492, não rejeitamos H<sub>0</sub>.</p>
+                
+                <p><strong>Conclusão:</strong> Não há evidências suficientes (ao nível de 1%) para apoiar a alegação do sindicato.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="exercicios-adicionais">
+        <h2>Exercícios Adicionais</h2>
+        
+        <div class="exercicio">
+            <h3>Estimadores</h3>
+            <p>1. Para uma população com distribuição exponencial (parâmetro λ), mostre que a média amostral é um estimador não-tendencioso para 1/λ.</p>
+            <p>2. Compare a eficiência da média e da mediana para uma população normal.</p>
+        </div>
+        
+        <div class="exercicio">
+            <h3>Intervalos de Confiança</h3>
+            <p>1. Uma amostra de 50 pacientes mostrou tempo médio de recuperação de 12 dias com desvio de 3 dias. Construa IC 90%.</p>
+            <p>2. Em 1000 lançamentos de moeda, saíram 540 caras. Construa IC 95% para a probabilidade de cara.</p>
+        </div>
+        
+        <div class="exercicio">
+            <h3>Testes de Hipóteses</h3>
+            <p>1. Um professor afirma que a nota média em sua disciplina é 7.0. Uma amostra de 36 alunos teve média 6.8 com desvio 1.2. Teste a afirmação com α = 5%.</p>
+            <p>2. Um fabricante diz que menos de 5% de seus produtos são defeituosos. Em 200 itens, 14 estavam defeituosos. O que concluir com α = 5%?</p>
+        </div>
+    </section>
+    
+    <script>
+        function toggleResolucao(id) {
+            var x = document.getElementById(id);
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
