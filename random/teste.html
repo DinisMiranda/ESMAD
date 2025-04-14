@@ -159,10 +159,11 @@
         <a href="#fundamentos" class="nav-link">Fundamentos</a>
         <a href="#controle" class="nav-link">Estruturas de Controle</a>
         <a href="#metodos" class="nav-link">Métodos</a>
-        <a href="#dom-events" class="nav-link">DOM Events</a>
-        <a href="#dom-intro" class="nav-link">Introdução ao DOM</a>
         <a href="#funcoes" class="nav-link">Funções</a>
         <a href="#objetos" class="nav-link">Objetos & Arrays</a>
+        <a href="#dom-intro" class="nav-link">Introdução ao DOM</a>
+        <a href="#dom-events" class="nav-link">DOM Events</a>
+        <a href="#LocalStorage" class="nav-link">Local Storage</a>
     </div>
 
     <!-- JavaScript Fundamentals Section -->
@@ -1006,6 +1007,193 @@ const square = x => x * x;</pre>
                 <li>Agrupe dados relacionados em objetos</li>
                 <li>Use arrays de objetos para coleções homogêneas</li>
             </ul>
+        </div>
+        <!-- Local Storage Section -->
+    <div class="reference-section" id="LocalStorage">
+        <h2>Local Storage em JavaScript</h2>
+      
+        <h3>🔹 1. Introdução</h3>
+        <div class="slide">
+            <ul>
+                <li>A Web Storage consiste na capacidade de recorrer ao Web browser para armazenar e obter dados</li>
+                <li>O objeto localStorage fornece acesso a um armazenamento local</li>
+                <li>Permite adicionar, ler, modificar e remover dados desse domínio local (web browser)</li>
+                <li>Os dados são armazenados de forma persistente e não são excluídos quando fecha o navegador</li>
+            </ul>
+        </div>
+        
+        <div class="slide">
+            <h4>Porquê usar Web Storage?</h4>
+            <ul>
+                <li>Rapidez e facilidade de acesso aos dados</li>
+                <li>Não requer tráfego de rede</li>
+                <li>Não sobrecarrega o servidor</li>
+                <li>Maior rapidez no acesso aos dados</li>
+                <li>Funcional mesmo em offline (porque dados estão no browser)</li>
+            </ul>
+            <h4>Soluções:</h4>
+            <ul>
+                <li>Cookies</li>
+                <li>Web Storage API</li>
+                <li>IndexedDB API</li>
+                <li>Bibliotecas (Lockr, localForage, Dexie, etc.)</li>
+            </ul>
+        </div>
+      
+        <h3>🔹 2. Web Storage API</h3>
+        <div class="slide">
+            <ul>
+                <li>API para armazenamento persistente, no browser do cliente, de dados sob a forma de key-value</li>
+                <li>Storage size: Pode armazenar até 5MB de dados na local Storage</li>
+                <li>Dados nunca são transferidos para o servidor</li>
+                <li>local Storage vs session Storage: são 2 áreas diferentes, distinguem-se pelo âmbito e persistência de dados</li>
+            </ul>
+        </div>
+        
+        <h3>🔹 3. Local Storage vs Session Storage</h3>
+        <div class="slide">
+            <table class="comparison-table">
+                <tr>
+                    <th>Característica</th>
+                    <th>Local Storage</th>
+                    <th>Session Storage</th>
+                </tr>
+                <tr>
+                    <td>Acesso</td>
+                    <td>Todas as páginas podem guardar e aceder aos mesmos dados</td>
+                    <td>Limitado à janela/tab atual</td>
+                </tr>
+                <tr>
+                    <td>Persistência</td>
+                    <td>Os dados persistem mesmo após fechar o browser</td>
+                    <td>Dados são removidos quando fecha o tab ou janela</td>
+                </tr>
+                <tr>
+                    <td>Objeto</td>
+                    <td>window.localStorage ou localStorage</td>
+                    <td>window.sessionStorage ou sessionStorage</td>
+                </tr>
+                <tr>
+                    <td>Associação</td>
+                    <td>Domínio/protocolo/porta</td>
+                    <td>Objeto janela/tabulador</td>
+                </tr>
+            </table>
+        </div>
+      
+        <h3>🔹 4. Propriedades e Métodos</h3>
+        <div class="slide">
+            <pre>
+// Propriedades
+localStorage.length // Retorna o número de itens armazenados
+
+// Métodos
+localStorage.setItem(key, value) // Armazena um item
+localStorage.getItem(key) // Obtém um item
+localStorage.removeItem(key) // Remove um item
+localStorage.clear() // Remove todos os itens
+localStorage.key(index) // Obtém o nome da chave no índice especificado</pre>
+        </div>
+        
+        <h3>🔹 5. Verificar suporte do navegador</h3>
+        <div class="slide">
+            <pre>
+if (typeof(Storage) !== "undefined") {
+    // Código para localStorage/sessionStorage
+} else {
+    alert("Seu navegador não suporta Web Storage");
+}</pre>
+        </div>
+        
+        <h3>🔹 6. Armazenar e ler dados</h3>
+        <div class="slide">
+            <pre>
+// Armazenar dados
+localStorage.setItem("nome", "João Silva");
+localStorage.setItem("idade", "30");
+
+// Ler dados
+const nome = localStorage.getItem("nome");
+console.log(nome); // "João Silva"</pre>
+        </div>
+        
+        <h3>🔹 7. Armazenar objetos e arrays</h3>
+        <div class="slide">
+            <div class="note">
+                Local Storage não armazena arrays, apenas dados primitivos sob a forma de strings
+            </div>
+            <pre>
+const usuario = {
+    nome: "Maria",
+    email: "maria@exemplo.com",
+    idade: 25
+};
+
+// Converter para string antes de armazenar
+localStorage.setItem("usuario", JSON.stringify(usuario));
+
+// Converter de volta para objeto ao ler
+const usuarioArmazenado = JSON.parse(localStorage.getItem("usuario"));</pre>
+        </div>
+        
+        <h3>🔹 8. Métodos JSON</h3>
+        <div class="slide">
+            <ul>
+                <li><strong>JSON.stringify()</strong> - converte um objeto JavaScript e transforma-o num JSON string</li>
+                <li><strong>JSON.parse()</strong> - converte uma JSON string e transforma-o num objeto JavaScript</li>
+            </ul>
+        </div>
+        
+        <h3>🔹 9. Verificar se um item existe</h3>
+        <div class="slide">
+            <pre>
+if (localStorage.getItem("usuario") !== null) {
+    console.log("Item existe na localStorage");
+} else {
+    console.log("Item não existe");
+}</pre>
+        </div>
+        
+        <h3>🔹 10. Iterar pela Local Storage</h3>
+        <div class="slide">
+            <pre>
+for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+    console.log(`${key}: ${value}`);
+}</pre>
+        </div>
+        
+        <h3>🔹 11. Remover dados</h3>
+        <div class="slide">
+            <pre>
+// Remove um item específico
+localStorage.removeItem("nome");
+
+// Remove todos os itens
+localStorage.clear();</pre>
+        </div>
+        
+        <h3>🔹 12. Vantagens e Desvantagens</h3>
+        <div class="slide">
+            <h4>Vantagens</h4>
+            <ul>
+                <li>Suportado em quase todos os navegadores, incluindo iOS e Android</li>
+                <li>Muito simples, fácil de usar!</li>
+            </ul>
+            
+            <h4>Desvantagens</h4>
+            <ul>
+                <li>Síncrono</li>
+                <li>Suporta apenas formato de string</li>
+                <li>Serialização-desserialização é um processo custoso. Torna o processamento mais lento</li>
+                <li>A pesquisa nunca é ótima; pode ter uma queda visível de desempenho em caso de dados grandes</li>
+            </ul>
+        </div>
+        
+        <div class="slide">
+            <h4>Quiz sobre Local Storage</h4>
+            <p>Teste seus conhecimentos: <a href="https://quizizz.com/join?gc=63394500" target="_blank">https://quizizz.com/join?gc=63394500</a></p>
         </div>
     </div>
 </body>

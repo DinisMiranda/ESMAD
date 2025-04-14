@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROGRAMAÇÃO ORIENTADA A OBJETOS - Local Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        .slide {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .slide-title {
+            font-size: 1.5em;
+            color: #2980b9;
+            margin-top: 0;
+        }
+        .code {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .note {
+            background-color: #fffde7;
+            border-left: 4px solid #ffd600;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .warning {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .slide-number {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <h1>PROGRAMAÇÃO ORIENTADA A OBJETOS</h1>
+    <h2>M04 – Local Storage</h2>
+    
+    <div class="slide">
+        <div class="slide-number">01</div>
+        <h3 class="slide-title">Introdução</h3>
+        <ul>
+            <li>A Web Storage consiste na capacidade de recorrer ao Web browser para armazenar e obter dados</li>
+            <li>O objeto localStorage fornece acesso a um armazenamento local</li>
+            <li>Permite adicionar, ler, modificar e remover dados desse domínio local (web browser)</li>
+            <li>Os dados são armazenados de forma persistente e não são excluídos quando fecha o navegador</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">02</div>
+        <h3 class="slide-title">Porquê usar Web Storage?</h3>
+        <ul>
+            <li>Rapidez e facilidade de acesso aos dados</li>
+            <li>Não requer tráfego de rede</li>
+            <li>Não sobrecarrega o servidor</li>
+            <li>Maior rapidez no acesso aos dados</li>
+            <li>Funcional mesmo em offline (porque dados estão no browser)</li>
+        </ul>
+        <h3>Soluções:</h3>
+        <ul>
+            <li>Cookies</li>
+            <li>Web Storage API</li>
+            <li>IndexedDB API</li>
+            <li>Bibliotecas (Lockr, localForage, Dexie, etc.)</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">03</div>
+        <h3 class="slide-title">Web Storage API</h3>
+        <ul>
+            <li>API para armazenamento persistente, no browser do cliente, de dados sob a forma de key-value</li>
+            <li>Storage size: Pode armazenar até 5MB de dados na local Storage</li>
+            <li>Dados nunca são transferidos para o servidor</li>
+            <li>local Storage vs session Storage: são 2 áreas diferentes, distinguem-se pelo âmbito e persistência de dados</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">04</div>
+        <h3 class="slide-title">Local Storage vs Session Storage</h3>
+        <div class="comparison-table">
+            <table>
+                <tr>
+                    <th>Característica</th>
+                    <th>Local Storage</th>
+                    <th>Session Storage</th>
+                </tr>
+                <tr>
+                    <td>Acesso</td>
+                    <td>Todas as páginas podem guardar e aceder aos mesmos dados</td>
+                    <td>Limitado à janela/tab atual</td>
+                </tr>
+                <tr>
+                    <td>Persistência</td>
+                    <td>Os dados persistem mesmo após fechar o browser</td>
+                    <td>Dados são removidos quando fecha o tab ou janela</td>
+                </tr>
+                <tr>
+                    <td>Objeto</td>
+                    <td>window.localStorage ou localStorage</td>
+                    <td>window.sessionStorage ou sessionStorage</td>
+                </tr>
+                <tr>
+                    <td>Associação</td>
+                    <td>Domínio/protocolo/porta</td>
+                    <td>Objeto janela/tabulador</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">05</div>
+        <h3 class="slide-title">Propriedades e Métodos</h3>
+        <div class="code">
+            // Propriedades
+            localStorage.length // Retorna o número de itens armazenados
+            
+            // Métodos
+            localStorage.setItem(key, value) // Armazena um item
+            localStorage.getItem(key) // Obtém um item
+            localStorage.removeItem(key) // Remove um item
+            localStorage.clear() // Remove todos os itens
+            localStorage.key(index) // Obtém o nome da chave no índice especificado
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">06</div>
+        <h3 class="slide-title">Verificar suporte do navegador</h3>
+        <div class="code">
+            if (typeof(Storage) !== "undefined") {
+                // Código para localStorage/sessionStorage
+            } else {
+                alert("Seu navegador não suporta Web Storage");
+            }
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">07</div>
+        <h3 class="slide-title">Armazenar dados</h3>
+        <div class="code">
+            localStorage.setItem("nome", "João Silva");
+            localStorage.setItem("idade", "30");
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">08</div>
+        <h3 class="slide-title">Ler dados</h3>
+        <div class="code">
+            const nome = localStorage.getItem("nome");
+            console.log(nome); // "João Silva"
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">09</div>
+        <h3 class="slide-title">Armazenar objetos e arrays</h3>
+        <div class="note">
+            Local Storage não armazena arrays, apenas dados primitivos sob a forma de strings
+        </div>
+        <div class="code">
+            const usuario = {
+                nome: "Maria",
+                email: "maria@exemplo.com",
+                idade: 25
+            };
+            
+            // Converter para string antes de armazenar
+            localStorage.setItem("usuario", JSON.stringify(usuario));
+            
+            // Converter de volta para objeto ao ler
+            const usuarioArmazenado = JSON.parse(localStorage.getItem("usuario"));
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">10</div>
+        <h3 class="slide-title">Métodos JSON</h3>
+        <ul>
+            <li><strong>JSON.stringify()</strong> - converte um objeto JavaScript e transforma-o num JSON string</li>
+            <li><strong>JSON.parse()</strong> - converte uma JSON string e transforma-o num objeto JavaScript</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">11</div>
+        <h3 class="slide-title">Verificar se um item existe</h3>
+        <div class="code">
+            if (localStorage.getItem("usuario") !== null) {
+                console.log("Item existe na localStorage");
+            } else {
+                console.log("Item não existe");
+            }
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">12</div>
+        <h3 class="slide-title">Iterar pela Local Storage</h3>
+        <div class="code">
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                console.log(`${key}: ${value}`);
+            }
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">13</div>
+        <h3 class="slide-title">Remover dados</h3>
+        <div class="code">
+            // Remove um item específico
+            localStorage.removeItem("nome");
+            
+            // Remove todos os itens
+            localStorage.clear();
+        </div>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">14</div>
+        <h3 class="slide-title">Vantagens</h3>
+        <ul>
+            <li>Suportado em quase todos os navegadores, incluindo iOS e Android</li>
+            <li>Muito simples, fácil de usar!</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">15</div>
+        <h3 class="slide-title">Desvantagens</h3>
+        <ul>
+            <li>Síncrono</li>
+            <li>Suporta apenas formato de string</li>
+            <li>Serialização-desserialização é um processo custoso. Torna o processamento mais lento</li>
+            <li>A pesquisa nunca é ótima; pode ter uma queda visível de desempenho em caso de dados grandes</li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <div class="slide-number">16</div>
+        <h3 class="slide-title">Quiz</h3>
+        <p>Teste seus conhecimentos: <a href="https://quizizz.com/join?gc=63394500" target="_blank">https://quizizz.com/join?gc=63394500</a></p>
+    </div>
+</body>
+</html>
