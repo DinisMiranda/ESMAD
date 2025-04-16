@@ -3,18 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Completo de JavaScript</title>
+    <title>Minhas Cadeiras - POO</title>
     <style>
+        /* Estilos gerais */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Estilos dos cartões */
+        .cards-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #3498db;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: #7f8c8d;
+            margin: 0;
+        }
+
+        /* Estilos do conteúdo */
+        .content-container {
+            display: none;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0 1rem 2rem;
         }
-        
+
         .reference-section {
             border: 2px solid #4CAF50;
             border-radius: 10px;
@@ -23,7 +78,28 @@
             margin-bottom: 30px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
+
+        .back-button {
+            display: none;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            width: fit-content;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        /* Estilos específicos do conteúdo */
         h2 {
             color: #4CAF50;
             text-align: center;
@@ -31,19 +107,19 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #ddd;
         }
-        
+
         h3 {
             color: #2E86C1;
             margin-top: 20px;
             padding-bottom: 5px;
             border-bottom: 1px dashed #ccc;
         }
-        
+
         h4 {
             color: #28B463;
             margin-bottom: 10px;
         }
-        
+
         pre {
             background-color: #eee;
             padding: 10px;
@@ -52,7 +128,7 @@
             font-family: Consolas, monospace;
             tab-size: 2;
         }
-        
+
         code {
             font-family: Consolas, monospace;
             background-color: #eee;
@@ -60,35 +136,35 @@
             border-radius: 3px;
             font-size: 0.9em;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 15px;
         }
-        
+
         th, td {
             padding: 8px;
             border: 1px solid #ddd;
             text-align: left;
         }
-        
+
         th {
             background-color: #4CAF50;
             color: white;
         }
-        
+
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             margin-bottom: 15px;
         }
-        
+
         .tip-box {
             background-color: #e7f3fe;
             border-left: 6px solid #2196F3;
@@ -96,7 +172,7 @@
             margin-top: 15px;
             border-radius: 0 5px 5px 0;
         }
-        
+
         .comparison-box {
             margin-top: 20px;
             background-color: #FFF3CD;
@@ -104,833 +180,190 @@
             padding: 10px;
             border-radius: 0 5px 5px 0;
         }
-        
+
+        .slide {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .highlight {
+            background-color: #ffffcc;
+            padding: 2px;
+        }
+
         ul, ol {
             padding-left: 20px;
         }
-        
+
         li {
             margin-bottom: 5px;
         }
-        
+
         p {
             margin: 10px 0;
         }
-        
-        .nav-menu {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .nav-link {
-            padding: 8px 15px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-link:hover {
-            background-color: #45a049;
-        }
     </style>
 </head>
+
 <body>
-    <h1 style="text-align: center; color: #2E86C1;">Guia Completo de JavaScript</h1>
-    
-    <div class="nav-menu">
-        <a href="#fundamentos" class="nav-link">Fundamentos</a>
-        <a href="#controle" class="nav-link">Estruturas de Controle</a>
-        <a href="#metodos" class="nav-link">Métodos</a>
-        <a href="#dom-events" class="nav-link">DOM Events</a>
-        <a href="#dom-intro" class="nav-link">Introdução ao DOM</a>
-        <a href="#funcoes" class="nav-link">Funções</a>
-        <a href="#objetos" class="nav-link">Objetos & Arrays</a>
-    </div>
+    <a href="#" class="back-button" id="backButton">← Voltar para todos os tópicos</a>
 
-    <!-- JavaScript Fundamentals Section -->
-    <div class="reference-section" id="fundamentos">
-        <h2>Resumo: Fundamentos de JavaScript</h2>
-      
-        <h3>🔹 1. Comentários</h3>
-        <ul>
-            <li>Single-line: <code>// comentário</code></li>
-            <li>Multi-line: <code>/* comentário */</code></li>
-            <li>Função: Documentar código e melhorar legibilidade</li>
-        </ul>
-      
-        <h3>🔹 2. Variáveis</h3>
-        <p><strong>Declaração:</strong></p>
-        <pre>
-let nome;          // Declaração
-const PI = 3.14;   // Constante
-let x = 1, y = 2;  // Múltiplas
-let z = x + y;     // Expressão</pre>
-        
-        <p><strong>Características:</strong></p>
-        <ul>
-            <li>Tipagem dinâmica (tipo automático e mutável)</li>
-            <li>Não pode ser redeclarada</li>
-        </ul>
-      
-        <h3>🔹 3. Nomenclatura</h3>
-        <p><strong>Regras:</strong></p>
-        <ul>
-            <li>Permitidos: letras, números, _ e $</li>
-            <li>Case sensitive</li>
-            <li>Não pode começar com número</li>
-        </ul>
-        <p><strong>Convenções:</strong></p>
-        <ul>
-            <li>camelCase (recomendado)</li>
-            <li>snake_case</li>
-        </ul>
-      
-        <h3>🔹 4. Tipos de Dados</h3>
-        <table>
-            <tr>
-                <th>Tipo</th>
-                <th>Descrição</th>
-                <th>Exemplo</th>
-            </tr>
-            <tr>
-                <td>Number</td>
-                <td>Inteiros/decimais</td>
-                <td><code>let x = 10</code></td>
-            </tr>
-            <tr>
-                <td>BigInt</td>
-                <td>Números grandes</td>
-                <td><code>let x = 10n</code></td>
-            </tr>
-            <tr>
-                <td>String</td>
-                <td>Texto</td>
-                <td><code>let s = "Olá"</code></td>
-            </tr>
-            <tr>
-                <td>Boolean</td>
-                <td>true/false</td>
-                <td><code>let b = true</code></td>
-            </tr>
-            <tr>
-                <td>Null</td>
-                <td>Valor nulo</td>
-                <td><code>let n = null</code></td>
-            </tr>
-            <tr>
-                <td>Undefined</td>
-                <td>Não definido</td>
-                <td><code>let u;</code></td>
-            </tr>
-            <tr>
-                <td>Object</td>
-                <td>Estrutura complexa</td>
-                <td><code>let obj = {}</code></td>
-            </tr>
-        </table>
-      
-        <h3>🔹 5. Conversões de Dados</h3>
-        <pre>
-String(123)     // "123"
-Number("123")   // 123
-Boolean(1)      // true
-parseInt("10")  // 10
-parseFloat("10.5") // 10.5
-+"10"           // 10 (conversão implícita)</pre>
-      
-        <h3>🔹 6. Operadores</h3>
-        <div class="grid-container">
-            <div>
-                <p><strong>Aritméticos:</strong></p>
-                <ul>
-                    <li><code>+ - * / % **</code></li>
-                    <li><code>++ --</code> (incremento)</li>
-                </ul>
-            </div>
-            <div>
-                <p><strong>Comparação:</strong></p>
-                <ul>
-                    <li><code>== != === !==</code></li>
-                    <li><code>> >= < <=</code></li>
-                </ul>
-            </div>
-            <div>
-                <p><strong>Lógicos:</strong></p>
-                <ul>
-                    <li><code>&& || !</code></li>
-                </ul>
-            </div>
-            <div>
-                <p><strong>Atribuição:</strong></p>
-                <ul>
-                    <li><code>= += -= *= /=</code></li>
-                </ul>
-            </div>
-        </div>
-      
-        <h3>🔹 7. Input e Output</h3>
-        <p><strong>Input:</strong></p>
-        <ul>
-            <li>DOM: <code>document.getElementById()</code></li>
-            <li><code>prompt("mensagem")</code></li>
-        </ul>
-        <p><strong>Output:</strong></p>
-        <ul>
-            <li>DOM: <code>element.innerHTML</code></li>
-            <li><code>alert("mensagem")</code></li>
-            <li><code>console.log()</code></li>
-        </ul>
-      
-        <div class="tip-box">
-            <p><strong>Dica:</strong> Use <code>typeof variavel</code> para verificar o tipo de uma variável</p>
-        </div>
-    </div>
+    <header>
+        <h1>Programação Orientada a Objetos</h1>
+        <p id="subtitle">Selecione um tópico para estudar</p>
+    </header>
 
-    <!-- Control Structures Section -->
-    <div class="reference-section" id="controle">
-        <h2>Resumo: Estruturas de Controle em JavaScript</h2>
-      
-        <h3>🔹 1. Estruturas Condicionais</h3>
-        
-        <h4>If/Else</h4>
-        <pre>
-if (condição) {
-    // código se verdadeiro
-} else {
-    // código se falso
-}</pre>
-      
-        <h4>Else If</h4>
-        <pre>
-if (condição1) {
-    // código 1
-} else if (condição2) {
-    // código 2
-} else {
-    // código padrão
-}</pre>
-      
-        <h4>Operador Ternário</h4>
-        <pre>
-condição ? expressãoSeVerdadeiro : expressãoSeFalso;</pre>
-      
-        <h4>Switch</h4>
-        <pre>
-switch(expressão) {
-    case valor1:
-        // código 1
-        break;
-    case valor2:
-        // código 2
-        break;
-    default:
-        // código padrão
-}</pre>
-        <p><strong>Observação:</strong> O <code>break</code> é essencial para evitar a execução em cascata dos casos.</p>
-      
-        <h3>🔹 2. Estruturas Iterativas</h3>
-        
-        <h4>For Loop</h4>
-        <pre>
-for (let i = 0; i < 10; i++) {
-    // código a repetir
-}</pre>
-      
-        <h4>For...In (para objetos)</h4>
-        <pre>
-for (let chave in objeto) {
-    // código usando objeto[chave]
-}</pre>
-      
-        <h4>For...Of (para iteráveis)</h4>
-        <pre>
-for (let valor of array) {
-    // código usando valor
-}</pre>
-      
-        <h4>While</h4>
-        <pre>
-while (condição) {
-    // código enquanto condição for verdadeira
-}</pre>
-      
-        <h4>Do...While</h4>
-        <pre>
-do {
-    // código executado pelo menos uma vez
-} while (condição);</pre>
-      
-        <h4>Controle de Loops</h4>
-        <ul>
-            <li><code>break</code> - Interrompe completamente o loop</li>
-            <li><code>continue</code> - Pula para a próxima iteração</li>
-        </ul>
-      
-        <div class="tip-box">
-            <p><strong>Dica:</strong> Use <code>for...of</code> para arrays e <code>for...in</code> para objetos. O <code>forEach()</code> também é uma alternativa moderna para arrays.</p>
-        </div>
-      
-        <div class="comparison-box">
-            <p><strong>Comparativo:</strong></p>
-            <ul>
-                <li><strong>For</strong>: Melhor quando se sabe o número exato de iterações</li>
-                <li><strong>While</strong>: Ideal quando a condição de parada é complexa</li>
-                <li><strong>Do...While</strong>: Garante pelo menos uma execução</li>
-            </ul>
-        </div>
-    </div>
+    <main>
+        <!-- Container dos cartões -->
+        <div class="cards-container" id="cardsContainer">
+            <div class="cards-grid">
+                <a href="#" class="card" data-section="fundamentos">
+                    <h3>Fundamentos de JavaScript</h3>
+                    <p>Variáveis, tipos de dados, operadores e mais</p>
+                </a>
+                
+                <a href="#" class="card" data-section="controle">
+                    <h3>Estruturas de Controle</h3>
+                    <p>Condicionais, loops e fluxo de execução</p>
+                </a>
+                
+                <a href="#" class="card" data-section="metodos">
+                    <h3>Métodos para Numbers e Strings</h3>
+                    <p>Manipulação de dados e métodos úteis</p>
+                </a>
+                
+                <a href="#" class="card" data-section="funcoes">
+                    <h3>Funções</h3>
+                    <p>Declaração, parâmetros e escopo</p>
+                </a>
 
-    <!-- Number and String Methods Section -->
-    <div class="reference-section" id="metodos">
-        <h2>Resumo: Métodos para Numbers e Strings</h2>
-      
-        <h3>🔹 1. Métodos para Numbers</h3>
-        
-        <h4>Conversão e Formatação</h4>
-        <table>
-            <tr>
-                <th>Método</th>
-                <th>Descrição</th>
-                <th>Exemplo</th>
-            </tr>
-            <tr>
-                <td><code>toString()</code></td>
-                <td>Converte para string</td>
-                <td><code>(123).toString()</code></td>
-            </tr>
-            <tr>
-                <td><code>toFixed(n)</code></td>
-                <td>n casas decimais</td>
-                <td><code>3.1415.toFixed(2)</code></td>
-            </tr>
-            <tr>
-                <td><code>toExponential(n)</code></td>
-                <td>Notação científica</td>
-                <td><code>1234.toExponential(2)</code></td>
-            </tr>
-            <tr>
-                <td><code>parseInt()</code></td>
-                <td>Converte para inteiro</td>
-                <td><code>parseInt("10")</code></td>
-            </tr>
-            <tr>
-                <td><code>parseFloat()</code></td>
-                <td>Converte para decimal</td>
-                <td><code>parseFloat("10.5")</code></td>
-            </tr>
-        </table>
-      
-        <h4>Métodos do Objeto Math</h4>
-        <div class="grid-container">
-            <div>
-                <ul>
-                    <li><code>Math.round(x)</code>: Arredonda</li>
-                    <li><code>Math.ceil(x)</code>: Arredonda para cima</li>
-                    <li><code>Math.floor(x)</code>: Arredonda para baixo</li>
-                    <li><code>Math.trunc(x)</code>: Remove decimais</li>
-                </ul>
-            </div>
-            <div>
-                <ul>
-                    <li><code>Math.random()</code>: Número aleatório [0,1)</li>
-                    <li><code>Math.max(...n)</code>: Maior valor</li>
-                    <li><code>Math.min(...n)</code>: Menor valor</li>
-                    <li><code>Math.pow(x,y)</code>: Potência (x^y)</li>
-                </ul>
+                <a href="#" class="card" data-section="objetos">
+                    <h3>Objetos & Arrays</h3>
+                    <p>Trabalhando com estruturas complexas</p>
+                </a>
+                
+                <a href="#" class="card" data-section="dom-intro">
+                    <h3>Introdução ao DOM</h3>
+                    <p>Document Object Model e manipulação</p>
+                </a>
+                
+                <a href="#" class="card" data-section="dom-events">
+                    <h3>DOM Events</h3>
+                    <p>Manipulação de eventos no navegador</p>
+                </a>
+                
+                <a href="#" class="card" data-section="LocalStorage">
+                    <h3>LocalStorage</h3>
+                    <p>O que é e como utilizar LocalStorage</p>
+                </a>
             </div>
         </div>
-      
-        <h3>🔹 2. Métodos para Strings</h3>
-        
-        <h4>Manipulação Básica</h4>
-        <table>
-            <tr>
-                <th>Método</th>
-                <th>Descrição</th>
-                <th>Exemplo</th>
-            </tr>
-            <tr>
-                <td><code>toUpperCase()</code></td>
-                <td>Maiúsculas</td>
-                <td><code>"texto".toUpperCase()</code></td>
-            </tr>
-            <tr>
-                <td><code>toLowerCase()</code></td>
-                <td>Minúsculas</td>
-                <td><code>"TEXTO".toLowerCase()</code></td>
-            </tr>
-            <tr>
-                <td><code>concat()</code></td>
-                <td>Concatena strings</td>
-                <td><code>"a".concat("b")</code></td>
-            </tr>
-            <tr>
-                <td><code>charAt(i)</code></td>
-                <td>Caractere na posição i</td>
-                <td><code>"abc".charAt(1)</code></td>
-            </tr>
-            <tr>
-                <td><code>at(i)</code></td>
-                <td>Similar ao charAt</td>
-                <td><code>"abc".at(-1)</code></td>
-            </tr>
-        </table>
-      
-        <h4>Pesquisa e Extração</h4>
-        <div class="grid-container">
-            <div>
-                <ul>
-                    <li><code>indexOf("x")</code>: Posição da primeira ocorrência</li>
-                    <li><code>lastIndexOf("x")</code>: Posição da última ocorrência</li>
-                    <li><code>includes("x")</code>: Verifica se contém</li>
-                    <li><code>startsWith("x")</code>: Verifica início</li>
-                </ul>
-            </div>
-            <div>
-                <ul>
-                    <li><code>endsWith("x")</code>: Verifica final</li>
-                    <li><code>slice(inicio,fim)</code>: Extrai parte da string</li>
-                    <li><code>substring(inicio,fim)</code>: Similar ao slice</li>
-                    <li><code>substr(inicio,length)</code>: Extrai por comprimento</li>
-                </ul>
-            </div>
+
+        <!-- Container do conteúdo (inicialmente oculto) -->
+        <div class="content-container" id="contentContainer">
+            <!-- Conteúdo será injetado aqui via JavaScript -->
         </div>
-      
-        <h4>Modificação</h4>
-        <pre>
-"Hello World".replace("World", "JS")   // "Hello JS"
-"a-b-c".split("-")                     // ["a", "b", "c"]
-"  texto  ".trim()                     // "texto"
-"abc".repeat(3)                        // "abcabcabc"</pre>
-      
-        <div class="tip-box">
-            <p><strong>Dica:</strong> Use <code>template strings</code> com crases (` `) para strings multi-linha e interpolação: <code>`Olá ${nome}`</code></p>
-        </div>
-    </div>
+    </main>
 
-    <!-- DOM Events Section -->
-    <div class="reference-section" id="dom-events">
-        <h2>Resumo: DOM Events em JavaScript</h2>
-      
-        <h3>🔹 1. Introdução aos Eventos</h3>
-        <p>Eventos são ações que ocorrem no navegador e podem ser capturados para executar funções JavaScript.</p>
-        
-        <h4>Gerenciamento Básico</h4>
-        <pre>
-// Adicionar evento
-elemento.addEventListener('click', function() {
-    console.log('Elemento clicado!');
-});
+    <footer>
+        <p>© 2024/25 Meus Estudos - ESMAD</p>
+    </footer>
 
-// Remover evento
-const handler = () => console.log('Clicado');
-elemento.addEventListener('click', handler);
-elemento.removeEventListener('click', handler);</pre>
-      
-        <h3>🔹 2. Tipos de Eventos</h3>
-        
-        <div class="grid-container">
-            <div>
-                <p><strong>Eventos de Janela:</strong></p>
-                <ul>
-                    <li><code>load</code>: Página carregada</li>
-                    <li><code>resize</code>: Redimensionamento</li>
-                    <li><code>scroll</code>: Rolagem da página</li>
-                </ul>
-            </div>
-            <div>
-                <p><strong>Eventos de Mouse:</strong></p>
-                <ul>
-                    <li><code>click</code>: Clique simples</li>
-                    <li><code>dblclick</code>: Duplo clique</li>
-                    <li><code>mouseover</code>/<code>mouseout</code></li>
-                </ul>
-            </div>
-            <div>
-                <p><strong>Eventos de Teclado:</strong></p>
-                <ul>
-                    <li><code>keydown</code>/<code>keyup</code></li>
-                    <li><code>keypress</code> (obsoleto)</li>
-                </ul>
-            </div>
-            <div>
-                <p><strong>Eventos de Formulário:</strong></p>
-                <ul>
-                    <li><code>submit</code></li>
-                    <li><code>change</code></li>
-                    <li><code>focus</code>/<code>blur</code></li>
-                </ul>
-            </div>
-        </div>
-      
-        <h3>🔹 3. Objeto Event</h3>
-        
-        <h4>Propriedades Principais</h4>
-        <pre>
-elemento.addEventListener('click', function(event) {
-    console.log(event.type);      // "click"
-    console.log(event.target);    // Elemento que disparou o evento
-    console.log(event.clientX);   // Posição X do mouse
-    console.log(event.key);       // Tecla pressionada (keyboard events)
-});</pre>
-      
-        <h4>Métodos Importantes</h4>
-        <pre>
-// Prevenir comportamento padrão
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Validação do formulário
-});
+    <script>
+        // Conteúdo de cada seção (simplificado - você deve adicionar todo o seu conteúdo real aqui)
+        const sectionsContent = {
+            fundamentos: `
+                <div class="reference-section" id="fundamentos">
+                    <h2>Resumo: Fundamentos de JavaScript</h2>
+                    <h3>🔹 1. Comentários</h3>
+                    <ul>
+                        <li>Single-line: <code>// comentário</code></li>
+                        <li>Multi-line: <code>/* comentário */</code></li>
+                    </ul>
+                    <!-- Adicione todo o resto do conteúdo desta seção -->
+                </div>
+            `,
+            controle: `
+                <div class="reference-section" id="controle">
+                    <h2>Resumo: Estruturas de Controle</h2>
+                    <h3>🔹 1. Estruturas Condicionais</h3>
+                    <!-- Adicione todo o conteúdo desta seção -->
+                </div>
+            `,
+            // Adicione todas as outras seções aqui com seu conteúdo completo
+            metodos: `<div class="reference-section" id="metodos">...</div>`,
+            funcoes: `<div class="reference-section" id="funcoes">...</div>`,
+            objetos: `<div class="reference-section" id="objetos">...</div>`,
+            "dom-intro": `<div class="reference-section" id="dom-intro">...</div>`,
+            "dom-events": `<div class="reference-section" id="dom-events">...</div>`,
+            LocalStorage: `<div class="reference-section" id="LocalStorage">...</div>`
+        };
 
-// Parar propagação
-botao.addEventListener('click', function(event) {
-    event.stopPropagation();
-    // Não dispara eventos de elementos pais
-});</pre>
-      
-        <div class="tip-box">
-            <p><strong>Boas Práticas:</strong></p>
-            <ul>
-                <li>Use <code>event delegation</code> para elementos dinâmicos</li>
-                <li>Prefira <code>addEventListener</code> a atributos HTML como <code>onclick</code></li>
-                <li>Remova listeners quando não forem mais necessários</li>
-            </ul>
-        </div>
-      
-        <div class="comparison-box">
-            <p><strong>Dica Avançada:</strong> Para eventos que ocorrem muitas vezes (como <code>scroll</code> ou <code>resize</code>, use <code>debouncing</code> para melhorar performance:</p>
-            <pre>
-function debounce(func, timeout = 300) {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => func.apply(this, args), timeout);
-    };
-}
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            const backButton = document.getElementById('backButton');
+            const cardsContainer = document.getElementById('cardsContainer');
+            const contentContainer = document.getElementById('contentContainer');
+            const subtitle = document.getElementById('subtitle');
 
-window.addEventListener('resize', debounce(() => {
-    console.log('Resize debounced');
-}));</pre>
-        </div>
-    </div>
+            // Adiciona evento de clique para cada cartão
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    showSection(sectionId);
+                });
+            });
 
-    <!-- DOM Introduction Section -->
-    <div class="reference-section" id="dom-intro">
-        <h2>Resumo: Introdução ao DOM</h2>
-        
-        <h3>🔹 O que é o DOM?</h3>
-        <p>O <strong>Document Object Model (DOM)</strong> é uma interface de programação que representa a estrutura de documentos HTML/XML como uma árvore de objetos, permitindo interação dinâmica com a página.</p>
-        
-        <h3>🔹 Componentes Principais</h3>
-        <ol>
-            <li><strong>Window</strong>: Objeto raiz que representa a janela do browser
-                <ul>
-                    <li><strong>DOM</strong>: Manipulação do conteúdo da página</li>
-                    <li><strong>BOM</strong>: Recursos do browser (navegação, histórico, etc.)</li>
-                    <li><strong>JavaScript</strong>: Objetos nativos da linguagem</li>
-                </ul>
-            </li>
-        </ol>
-        
-        <h3>🔹 Estrutura do DOM</h3>
-        <p>Hierarquia de nós (nodes):</p>
-        <ul>
-            <li><strong>Document node</strong>: Nó raiz</li>
-            <li><strong>Element nodes</strong>: Tags HTML</li>
-            <li><strong>Text nodes</strong>: Conteúdo textual</li>
-            <li><strong>Comment nodes</strong>: Comentários</li>
-        </ul>
-        
-        <h3>🔹 Seleção de Elementos</h3>
-        <p>Métodos principais:</p>
-        <pre>
-// Por ID
-document.getElementById('id')
+            // Adiciona evento para o botão de voltar
+            backButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideContent();
+            });
 
-// Por nome
-document.getElementsByName('name')
+            // Mostra uma seção específica
+            function showSection(sectionId) {
+                if (sectionsContent[sectionId]) {
+                    // Esconde os cartões
+                    cardsContainer.style.display = 'none';
+                    
+                    // Mostra o container de conteúdo
+                    contentContainer.style.display = 'block';
+                    
+                    // Injeta o conteúdo da seção
+                    contentContainer.innerHTML = sectionsContent[sectionId];
+                    
+                    // Mostra o botão de voltar
+                    backButton.style.display = 'block';
+                    
+                    // Atualiza o subtítulo
+                    const cardTitle = document.querySelector(`.card[data-section="${sectionId}"] h3`).textContent;
+                    subtitle.textContent = cardTitle;
+                    
+                    // Rolagem para o topo
+                    window.scrollTo(0, 0);
+                }
+            }
 
-// Por tag
-document.getElementsByTagName('div')
+            // Esconde o conteúdo e mostra os cartões novamente
+            function hideContent() {
+                contentContainer.style.display = 'none';
+                cardsContainer.style.display = 'block';
+                backButton.style.display = 'none';
+                subtitle.textContent = 'Selecione um tópico para estudar';
+            }
 
-// Por classe
-document.getElementsByClassName('classe')
-
-// Seletores CSS
-document.querySelector('seletor') // Primeiro elemento
-document.querySelectorAll('seletor') // Todos elementos</pre>
-        
-        <h3>🔹 Manipulação de Elementos</h3>
-        <ul>
-            <li><strong>Conteúdo</strong>: <code>element.innerHTML = 'novo conteúdo'</code></li>
-            <li><strong>Estilo</strong>: <code>element.style.property = 'valor'</code></li>
-            <li><strong>Valores</strong>: <code>element.value = 'novo valor'</code></li>
-        </ul>
-        
-        <h3>🔹 Navegação na Árvore DOM</h3>
-        <p>Propriedades de navegação:</p>
-        <pre>
-element.parentNode // Nó pai
-element.childNodes // Lista de filhos
-element.firstChild // Primeiro filho
-element.lastChild // Último filho
-element.nextSibling // Próximo irmão
-element.previousSibling // Irmão anterior</pre>
-        
-        <h3>🔹 Gestão de Nós</h3>
-        <ul>
-            <li><strong>Criação</strong>:
-                <pre>
-document.createElement('tag')
-document.createTextNode('texto')
-parent.appendChild(child)</pre>
-            </li>
-            <li><strong>Substituição</strong>: <code>parent.replaceChild(new, old)</code></li>
-            <li><strong>Remoção</strong>: <code>parent.removeChild(child)</code></li>
-        </ul>
-        
-        <h3>🔹 Validação de Formulários</h3>
-        <ul>
-            <li><strong>HTML</strong>: Atributos como <code>required</code>, <code>type</code>, <code>pattern</code></li>
-            <li><strong>JavaScript</strong>:
-                <pre>
-form.addEventListener('submit', (e) => {
-    e.preventDefault() // Evita envio padrão
-    // Validação personalizada
-})</pre>
-            </li>
-        </ul>
-        
-        <h3>🔹 Boas Práticas</h3>
-        <ul>
-            <li>Prefira <code>querySelector</code> para seleção flexível</li>
-            <li>Use template strings para construção complexa de HTML</li>
-            <li>Modere o uso direto de manipulação de nós, preferindo innerHTML quando apropriado</li>
-        </ul>
-    </div>
-
-    <!-- Functions Section -->
-    <div class="reference-section" id="funcoes">
-        <h2>Resumo: Funções em JavaScript</h2>
-      
-        <h3>🔹 1. Declaração de Funções</h3>
-        <p>Blocos de código reutilizáveis que executam tarefas específicas.</p>
-        <pre>
-// Função declarativa
-function nomeFunção(parâmetros) {
-    // corpo da função
-}</pre>
-      
-        <h3>🔹 2. Nomenclatura</h3>
-        <p><strong>Boas práticas:</strong></p>
-        <ul>
-            <li>Usar verbos no início: <code>show</code>, <code>get</code>, <code>calc</code>, <code>create</code>, <code>check</code></li>
-            <li>Nomes curtos e descritivos</li>
-            <li>Uma função = uma tarefa</li>
-            <li>Sempre incluir comentários</li>
-        </ul>
-      
-        <h3>🔹 3. Parâmetros e Argumentos</h3>
-        <div class="grid-container">
-            <div>
-                <p><strong>Parâmetros padrão:</strong></p>
-                <pre>
-function greet(name = "Visitante") {
-    return `Olá ${name}`;
-}</pre>
-            </div>
-            <div>
-                <p><strong>Parâmetros rest:</strong></p>
-                <pre>
-function sum(...numbers) {
-    return numbers.reduce((a, b) => a + b);
-}</pre>
-            </div>
-        </div>
-      
-        <h3>🔹 4. Retorno de Valores</h3>
-        <pre>
-function square(x) {
-    return x * x; // Retorna o valor
-}
-let result = square(5); // 25</pre>
-        <p>Pode ter múltiplos <code>return</code> condicionais.</p>
-      
-        <h3>🔹 5. Funções de Expressão</h3>
-        <pre>
-// Atribuída a variável
-const greet = function(name) {
-    return `Olá ${name}`;
-};
-
-// IIFE (Immediately Invoked Function Expression)
-(function() {
-    console.log('Executada imediatamente');
-})();</pre>
-      
-        <h3>🔹 6. Arrow Functions</h3>
-        <div class="grid-container">
-            <div>
-                <p><strong>Sintaxe básica:</strong></p>
-                <pre>
-// Forma completa
-const sum = (a, b) => {
-    return a + b;
-};
-
-// Forma reduzida
-const square = x => x * x;</pre>
-            </div>
-            <div>
-                <p><strong>Características:</strong></p>
-                <ul>
-                    <li>Sem <code>function</code> keyword</li>
-                    <li>Sem <code>this</code> próprio</li>
-                    <li>Sem <code>arguments</code> object</li>
-                    <li>Ótimas para callbacks</li>
-                </ul>
-            </div>
-        </div>
-      
-        <div class="tip-box">
-            <p><strong>Comparativo:</strong></p>
-            <ul>
-                <li><strong>Declaração:</strong> Hoisting permitido, mais legível</li>
-                <li><strong>Expressão:</strong> Mais flexível, IIFE possível</li>
-                <li><strong>Arrow:</strong> Sintaxe concisa, melhor para callbacks</li>
-            </ul>
-        </div>
-      
-        <div class="comparison-box">
-            <p><strong>Dica:</strong> Use arrow functions para métodos curtos e callbacks, e funções declarativas para funções mais complexas que precisam de hoisting.</p>
-        </div>
-    </div>
-
-    <!-- Objects and Arrays of Objects Section -->
-    <div class="reference-section" id="objetos">
-        <h2>Resumo: Objetos & Arrays de Objetos</h2>
-  
-        <h3 style="color: #2E86C1;">🔹 1. Criação de Objetos</h3>
-        
-        <h4 style="color: #28B463;">Sintaxes de Criação</h4>
-        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
-  // Literal (mais comum)
-  const pessoa = {
-    nome: "João",
-    idade: 30,
-    profissao: "Desenvolvedor"
-  };
-  
-  // Usando new Object()
-  const carro = new Object();
-  carro.marca = "Toyota";
-  carro.modelo = "Corolla";
-  
-  // Constructor function
-  function Animal(nome, tipo) {
-    this.nome = nome;
-    this.tipo = tipo;
-  }
-  const gato = new Animal("Mimi", "Felino");</pre>
-  
-        <h3 style="color: #2E86C1;">🔹 2. Propriedades de Objetos</h3>
-        
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-            <div>
-                <p><strong>Acesso:</strong></p>
-                <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
-  // Notação de ponto
-  pessoa.nome; // "João"
-  
-  // Notação de colchetes
-  pessoa['idade']; // 30</pre>
-            </div>
-            <div>
-                <p><strong>Manipulação:</strong></p>
-                <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
-  // Adicionar
-  pessoa.email = "joao@exemplo.com";
-  
-  // Remover
-  delete pessoa.profissao;
-  
-  // Verificar existência
-  "nome" in pessoa; // true</pre>
-            </div>
-        </div>
-  
-        <h4 style="color: #28B463;">Estruturas Complexas</h4>
-        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
-  // Objeto com array
-  const aluno = {
-    nome: "Maria",
-    notas: [15, 18, 17]
-  };
-  
-  // Objeto com sub-objeto
-  const produto = {
-    nome: "Telemóvel",
-    especificacoes: {
-      ram: "8GB",
-      armazenamento: "128GB"
-    }
-  };</pre>
-  
-        <h3 style="color: #2E86C1;">🔹 3. Métodos em Objetos</h3>
-        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
-  const conta = {
-    saldo: 1000,
-    depositar: function(valor) {
-      this.saldo += valor;
-    },
-    sacar(valor) { // Forma abreviada
-      this.saldo -= valor;
-    }
-  };
-  
-  conta.depositar(500); // saldo = 1500
-  conta.sacar(200);     // saldo = 1300</pre>
-  
-        <h3 style="color: #2E86C1;">🔹 4. Arrays de Objetos</h3>
-        <pre style="background-color: #eee; padding: 10px; border-radius: 5px;">
-  const pessoas = [
-    { nome: "Ana", idade: 25 },
-    { nome: "Carlos", idade: 32 }
-  ];
-  
-  // Adicionar novo objeto
-  pessoas.push({ nome: "Beatriz", idade: 28 });
-  
-  // Acessar propriedades
-  pessoas[0].nome; // "Ana"
-  
-  // Iteração
-  pessoas.forEach(pessoa => {
-    console.log(`${pessoa.nome} tem ${pessoa.idade} anos`);
-  });</pre>
-  
-        <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 10px; margin-top: 15px;">
-            <p><strong>Dicas Avançadas:</strong></p>
-            <ul>
-                <li>Use <code>Object.keys(obj)</code> para listar todas as propriedades</li>
-                <li><code>Object.freeze(obj)</code> previne modificações no objeto</li>
-                <li>Destructuring: <code>const { nome, idade } = pessoa;</code></li>
-            </ul>
-        </div>
-  
-        <div style="margin-top: 20px; background-color: #FFF3CD; border-left: 6px solid #FFC107; padding: 10px;">
-            <p><strong>Boas Práticas:</strong></p>
-            <ul>
-                <li>Nomes descritivos para propriedades</li>
-                <li>Agrupe dados relacionados em objetos</li>
-                <li>Use arrays de objetos para coleções homogêneas</li>
-            </ul>
-        </div>
-    </div>
+            // Verifica se há um hash na URL ao carregar a página
+            if (window.location.hash) {
+                const sectionId = window.location.hash.substring(1);
+                if (sectionsContent[sectionId]) {
+                    showSection(sectionId);
+                }
+            }
+        });
+    </script>
 </body>
 </html>

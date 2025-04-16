@@ -4,118 +4,160 @@
   </head>
   <body>
     <a-scene>
-      <!-- Puppet Head -->
+      <!-- Cabeça do Drácula -->
       <a-sphere
         position="0 1.5 -3"
         radius="0.5"
-        color="#FFC65D">
-        <!-- Left Eye -->
+        color="#F5F5F5">  <!-- Pele pálida -->
+        
+        <!-- Olho Esquerdo -->
         <a-sphere
           position="-0.2 0.1 0.5"
           radius="0.05"
-          color="#000">
+          color="#FF0000">  <!-- Olhos vermelhos -->
         </a-sphere>
-        <!-- Right Eye -->
+        
+        <!-- Olho Direito -->
         <a-sphere
           position="0.2 0.1 0.5"
           radius="0.05"
-          color="#000">
+          color="#FF0000">
         </a-sphere>
        
-         <!-- Mouth -->
-         <a-box
-         position="0 -0.2 0.5"
-         width="0.3"
-         height="0.05"
-         depth="0.05"
-         color="#FF0000">
-         <!-- Left Fang -->
-         <a-cone
-           position="-0.1 -0.05 0.05"
-           radius-bottom="0.02"
-           radius-top="0"
-           height="0.1"
-           color="#FFFFFF">
-         </a-cone>
-         <!-- Right Fang -->
-         <a-cone
-           position="0.1 -0.05 0.05"
-           radius-bottom="0.02"
-           radius-top="0"
-           height="0.1"
-           color="#FFFFFF">
-         </a-cone>
-       </a-box>
-       <!-- Hair -->
-       <a-box
-         position="0 0.7 0.3"
-         width="0.6"
-         height="0.05"
-         depth="0.2"
-         color="#000"
-         rotation="0 0 0">
-       </a-box>
-     </a-sphere>
+        <!-- Boca com dentes afiados -->
+        <a-box
+          position="0 -0.2 0.528"
+          width="0.3"
+          height="0.05"
+          depth="0.05"
+          color="#8B0000">  <!-- Boca vermelho escuro -->
+          
+          <!-- Presa Esquerda -->
+          <a-cone
+            position="-0.100 -0.090 0.011"
+            rotation="180 0 0"
+            radius-bottom="0.02"
+            radius-top="0"
+            height="0.15"  <!-- Presas mais longas -->
+            color="#FFFFFF">
+          </a-cone>
+          
+          <!-- Presa Direita -->
+          <a-cone
+            position="0.100 -0.076 -0.002"
+            rotation="180 0 0"
+            radius-bottom="0.02"
+            radius-top="0"
+            height="0.15"
+            color="#FFFFFF">
+          </a-cone>
+        </a-box>
+        
+        
+        
+        <!-- Sobrancelhas ameaçadoras -->
+        <a-box
+          position="-0.15 0.3 0.45"
+          width="0.15"
+          height="0.02"
+          depth="0.02"
+          color="#000000"
+          rotation="0 0 -20">
+        </a-box>
+        <a-box
+          position="0.15 0.3 0.45"
+          width="0.15"
+          height="0.02"
+          depth="0.02"
+          color="#000000"
+          rotation="0 0 20">
+        </a-box>
+      </a-sphere>
 
-      <!-- Puppet Body -->
+      <!-- Corpo do Drácula -->
       <a-box
         position="0 0.75 -3"
         width="0.5"
         height="1.5"
         depth="0.5"
-        color="#FF6B6B">
+        color="#2F2F2F">  <!-- Roupa preta -->
       </a-box>
 
-      <!-- Cape -->
+      <!-- Capa de vampiro -->
       <a-cone
         position="0 0.75 -3.2"
-        radius-bottom="0.6"
+        radius-bottom="1.0"  <!-- Capa mais larga -->
         radius-top="0.3"
-        height="1.5"
-        color="#8B0000"
-        rotation="0 0 0">
+        height="1.510"  <!-- Capa mais longa -->
+        color="#8B0000"  <!-- Vermelho sangue -->
+        rotation="0 0 0"
+        side="double">  <!-- Para ser visível por ambos os lados -->
       </a-cone>
 
-      <!-- Puppet Left Arm -->
+      <!-- Gola alta da capa -->
+      <a-torus
+        position="0 1.5 -3"
+        arc="360"
+        radius="0.4"
+        radius-tubular="0.1"
+        color="#8B0000"
+        rotation="90 0 0">
+      </a-torus>
+
+      <!-- Braço Esquerdo -->
       <a-cylinder
         position="-0.4 0.75 -3"
+        rotation="0 0 45"
         radius="0.1"
         height="0.75"
-        color="#4ECDC4"
+        color="#2F2F2F"  <!-- Combinando com o corpo -->
         rotation="0 0 45">
       </a-cylinder>
 
-      <!-- Puppet Right Arm -->
+      <!-- Braço Direito -->
       <a-cylinder
         position="0.4 0.75 -3"
         radius="0.1"
         height="0.75"
-        color="#4ECDC4"
+        color="#2F2F2F"
         rotation="0 0 -45">
       </a-cylinder>
 
-      <!-- Puppet Left Leg -->
+      <!-- Pernas -->
       <a-cylinder
         position="-0.2 -0.5 -3"
         radius="0.1"
         height="1"
-        color="#4ECDC4"
+        color="#2F2F2F"
         rotation="0 0 10">
       </a-cylinder>
-
-      <!-- Puppet Right Leg -->
       <a-cylinder
         position="0.2 -0.5 -3"
         radius="0.1"
         height="1"
-        color="#4ECDC4"
+        color="#2F2F2F"
         rotation="0 0 -10">
       </a-cylinder>
 
-
-
-      <!-- Sky -->
-      <a-sky color="#ECECEC"></a-sky>
+      <!-- Lua de fundo para atmosfera vampírica -->
+      <a-circle
+        position="-3 3 -5"
+        radius="1"
+        color="#FFFF99"
+        segments="64">
+      </a-circle>
+      
+      <!-- Céu noturno -->
+      <a-sky color="#000033"></a-sky>
+      
+      <!-- Terreno com névoa -->
+      <a-plane
+        position="0 -1 -3"
+        width="10"
+        height="10"
+        color="#333333"
+        rotation="-90 0 0">
+      </a-plane>
     </a-scene>
   </body>
 </html>
