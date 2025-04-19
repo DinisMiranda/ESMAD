@@ -6,6 +6,17 @@
     <title>POO - Conteúdo Completo</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/materia.css">
+    <style>
+        /* Hide all sections by default */
+        .reference-section {
+            display: none;
+        }
+        
+        /* Show only the active section */
+        .reference-section.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -1069,14 +1080,54 @@ localStorage.clear();</pre>
     </footer>
 
     <script>
-        // Rolagem suave para âncoras
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Handle navigation and section display
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide all sections initially
+            document.querySelectorAll('.reference-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Handle smooth scrolling for internal navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    showSection(targetId);
                 });
             });
+
+            // Handle direct navigation from index page
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                showSection(targetId);
+            } else {
+                // If no hash, show the first section by default
+                const firstSection = document.querySelector('.reference-section');
+                if (firstSection) {
+                    showSection(firstSection.id);
+                }
+            }
+            
+            // Function to show a specific section
+            function showSection(sectionId) {
+                // Hide all sections first
+                document.querySelectorAll('.reference-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the selected section
+                const targetElement = document.getElementById(sectionId);
+                if (targetElement) {
+                    targetElement.classList.add('active');
+                    
+                    // Scroll to the section
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            }
         });
     </script>
 </body>

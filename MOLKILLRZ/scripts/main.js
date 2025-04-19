@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Efeito ao clicar nos cartões
+    // Visual feedback effect for cards
     const cards = document.querySelectorAll('.card');
     
     cards.forEach(card => {
         card.addEventListener('click', function() {
-            // Feedback visual ao clicar
+            // Visual feedback on click
             this.style.transform = 'scale(0.98)';
             setTimeout(() => {
                 this.style.transform = '';
