@@ -3,367 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minhas Cadeiras - POO</title>
+    <title>Resumo de Vetores</title>
     <style>
-        /* Estilos gerais */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f7fa;
-        }
-
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        /* Estilos dos cartões */
-        .cards-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #3498db;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .card h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .card p {
-            color: #7f8c8d;
-            margin: 0;
-        }
-
-        /* Estilos do conteúdo */
-        .content-container {
-            display: none;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 1rem 2rem;
+            padding: 20px;
+            color: #333;
         }
-
-        .reference-section {
-            border: 2px solid #4CAF50;
-            border-radius: 10px;
-            padding: 15px;
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .definition {
             background-color: #f8f9fa;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
         }
-
-        .back-button {
-            display: none;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
             border-radius: 5px;
-            text-align: center;
-            width: fit-content;
-            cursor: pointer;
+            margin: 15px 0;
         }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: #2c3e50;
-            color: white;
-        }
-
-        /* Estilos específicos do conteúdo */
-        h2 {
-            color: #4CAF50;
-            text-align: center;
-            margin-top: 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        h3 {
-            color: #2E86C1;
-            margin-top: 20px;
-            padding-bottom: 5px;
-            border-bottom: 1px dashed #ccc;
-        }
-
-        h4 {
-            color: #28B463;
-            margin-bottom: 10px;
-        }
-
-        pre {
-            background-color: #eee;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-family: Consolas, monospace;
-            tab-size: 2;
-        }
-
         code {
-            font-family: Consolas, monospace;
-            background-color: #eee;
-            padding: 2px 4px;
+            background-color: #f0f0f0;
+            padding: 2px 5px;
             border-radius: 3px;
-            font-size: 0.9em;
+            font-family: monospace;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 15px;
+            margin: 20px 0;
         }
-
         th, td {
-            padding: 8px;
             border: 1px solid #ddd;
+            padding: 8px;
             text-align: left;
         }
-
         th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
             background-color: #f2f2f2;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .tip-box {
-            background-color: #e7f3fe;
-            border-left: 6px solid #2196F3;
-            padding: 10px;
-            margin-top: 15px;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .comparison-box {
-            margin-top: 20px;
-            background-color: #FFF3CD;
-            border-left: 6px solid #FFC107;
-            padding: 10px;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .slide {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: white;
-        }
-
-        .highlight {
-            background-color: #ffffcc;
-            padding: 2px;
-        }
-
-        ul, ol {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        p {
-            margin: 10px 0;
         }
     </style>
 </head>
-
 <body>
-    <a href="#" class="back-button" id="backButton">← Voltar para todos os tópicos</a>
+    <h1>Resumo Completo de Vetores</h1>
 
-    <header>
-        <h1>Programação Orientada a Objetos</h1>
-        <p id="subtitle">Selecione um tópico para estudar</p>
-    </header>
-
-    <main>
-        <!-- Container dos cartões -->
-        <div class="cards-container" id="cardsContainer">
-            <div class="cards-grid">
-                <a href="#" class="card" data-section="fundamentos">
-                    <h3>Fundamentos de JavaScript</h3>
-                    <p>Variáveis, tipos de dados, operadores e mais</p>
-                </a>
-                
-                <a href="#" class="card" data-section="controle">
-                    <h3>Estruturas de Controle</h3>
-                    <p>Condicionais, loops e fluxo de execução</p>
-                </a>
-                
-                <a href="#" class="card" data-section="metodos">
-                    <h3>Métodos para Numbers e Strings</h3>
-                    <p>Manipulação de dados e métodos úteis</p>
-                </a>
-                
-                <a href="#" class="card" data-section="funcoes">
-                    <h3>Funções</h3>
-                    <p>Declaração, parâmetros e escopo</p>
-                </a>
-
-                <a href="#" class="card" data-section="objetos">
-                    <h3>Objetos & Arrays</h3>
-                    <p>Trabalhando com estruturas complexas</p>
-                </a>
-                
-                <a href="#" class="card" data-section="dom-intro">
-                    <h3>Introdução ao DOM</h3>
-                    <p>Document Object Model e manipulação</p>
-                </a>
-                
-                <a href="#" class="card" data-section="dom-events">
-                    <h3>DOM Events</h3>
-                    <p>Manipulação de eventos no navegador</p>
-                </a>
-                
-                <a href="#" class="card" data-section="LocalStorage">
-                    <h3>LocalStorage</h3>
-                    <p>O que é e como utilizar LocalStorage</p>
-                </a>
-            </div>
+    <section id="introducao">
+        <h2>1. Introdução a Vetores</h2>
+        <div class="definition">
+            <p>Um <strong>vetor</strong> (ou array) é uma estrutura de dados que armazena uma coleção ordenada de elementos do mesmo tipo. Cada elemento pode ser acessado por um índice numérico.</p>
         </div>
+        
+        <h3>Características principais:</h3>
+        <ul>
+            <li>Todos os elementos são do mesmo tipo (homogêneos)</li>
+            <li>Tamanho fixo (na maioria das linguagens)</li>
+            <li>Acesso direto a qualquer elemento através de índices</li>
+            <li>Armazenamento contíguo na memória</li>
+        </ul>
+    </section>
 
-        <!-- Container do conteúdo (inicialmente oculto) -->
-        <div class="content-container" id="contentContainer">
-            <!-- Conteúdo será injetado aqui via JavaScript -->
+    <section id="declaracao">
+        <h2>2. Declaração de Vetores</h2>
+        
+        <h3>Em diferentes linguagens:</h3>
+        <div class="example">
+            <h4>C/C++:</h4>
+            <code>int vetor[5]; // Declara um vetor de inteiros com 5 posições</code>
+            <code>float valores[10] = {1.5, 2.3, 3.7}; // Declaração com inicialização</code>
         </div>
-    </main>
+        
+        <div class="example">
+            <h4>Java:</h4>
+            <code>int[] vetor = new int[5];</code>
+            <code>String[] nomes = {"Ana", "João", "Maria"};</code>
+        </div>
+        
+        <div class="example">
+            <h4>Python (listas):</h4>
+            <code>vetor = [1, 2, 3, 4, 5]</code>
+            <code>nomes = ["Ana", "João", "Maria"]</code>
+        </div>
+    </section>
 
-    <footer>
-        <p>© 2024/25 Meus Estudos - ESMAD</p>
-    </footer>
+    <section id="operacoes">
+        <h2>3. Operações Básicas com Vetores</h2>
+        
+        <table>
+            <tr>
+                <th>Operação</th>
+                <th>Descrição</th>
+                <th>Complexidade</th>
+            </tr>
+            <tr>
+                <td>Acesso</td>
+                <td>Ler ou modificar um elemento em uma posição específica</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Inserção no final</td>
+                <td>Adicionar um novo elemento ao final do vetor</td>
+                <td>O(1) ou O(n) se redimensionamento</td>
+            </tr>
+            <tr>
+                <td>Inserção no meio</td>
+                <td>Adicionar um elemento em uma posição específica</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Remoção</td>
+                <td>Remover um elemento de uma posição específica</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Busca</td>
+                <td>Encontrar a posição de um elemento</td>
+                <td>O(n)</td>
+            </tr>
+        </table>
+    </section>
 
-    <script>
-        // Conteúdo de cada seção (simplificado - você deve adicionar todo o seu conteúdo real aqui)
-        const sectionsContent = {
-            fundamentos: `
-                <div class="reference-section" id="fundamentos">
-                    <h2>Resumo: Fundamentos de JavaScript</h2>
-                    <h3>🔹 1. Comentários</h3>
-                    <ul>
-                        <li>Single-line: <code>// comentário</code></li>
-                        <li>Multi-line: <code>/* comentário */</code></li>
-                    </ul>
-                    <!-- Adicione todo o resto do conteúdo desta seção -->
-                </div>
-            `,
-            controle: `
-                <div class="reference-section" id="controle">
-                    <h2>Resumo: Estruturas de Controle</h2>
-                    <h3>🔹 1. Estruturas Condicionais</h3>
-                    <!-- Adicione todo o conteúdo desta seção -->
-                </div>
-            `,
-            // Adicione todas as outras seções aqui com seu conteúdo completo
-            metodos: `<div class="reference-section" id="metodos">...</div>`,
-            funcoes: `<div class="reference-section" id="funcoes">...</div>`,
-            objetos: `<div class="reference-section" id="objetos">...</div>`,
-            "dom-intro": `<div class="reference-section" id="dom-intro">...</div>`,
-            "dom-events": `<div class="reference-section" id="dom-events">...</div>`,
-            LocalStorage: `<div class="reference-section" id="LocalStorage">...</div>`
-        };
+    <section id="aplicacoes">
+        <h2>4. Aplicações de Vetores</h2>
+        <ul>
+            <li>Armazenamento de coleções de dados homogêneos</li>
+            <li>Implementação de pilhas e filas</li>
+            <li>Tabelas de hash</li>
+            <li>Matrizes (vetores multidimensionais)</li>
+            <li>Algoritmos de ordenação e busca</li>
+        </ul>
+    </section>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
-            const backButton = document.getElementById('backButton');
-            const cardsContainer = document.getElementById('cardsContainer');
-            const contentContainer = document.getElementById('contentContainer');
-            const subtitle = document.getElementById('subtitle');
+    <section id="vantagens-desvantagens">
+        <h2>5. Vantagens e Desvantagens</h2>
+        
+        <h3>Vantagens:</h3>
+        <ul>
+            <li>Acesso rápido a qualquer elemento (O(1))</li>
+            <li>Fácil implementação</li>
+            <li>Eficiente para armazenamento sequencial</li>
+            <li>Bom para casos onde o tamanho é conhecido antecipadamente</li>
+        </ul>
+        
+        <h3>Desvantagens:</h3>
+        <ul>
+            <li>Tamanho fixo (na maioria das implementações)</li>
+            <li>Inserções e remoções no meio são ineficientes</li>
+            <li>Pode desperdiçar memória se não for totalmente utilizado</li>
+            <li>Redimensionamento pode ser custoso</li>
+        </ul>
+    </section>
 
-            // Adiciona evento de clique para cada cartão
-            cards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const sectionId = this.getAttribute('data-section');
-                    showSection(sectionId);
-                });
-            });
+    <section id="exemplo-completo">
+        <h2>6. Exemplo Completo em C</h2>
+        <div class="example">
+            <pre><code>#include &lt;stdio.h&gt;
 
-            // Adiciona evento para o botão de voltar
-            backButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                hideContent();
-            });
+int main() {
+    // Declaração e inicialização
+    int numeros[5] = {10, 20, 30, 40, 50};
+    int i;
+    
+    // Acessando e modificando elementos
+    numeros[2] = 35; // Altera o terceiro elemento
+    
+    // Percorrendo o vetor
+    printf("Elementos do vetor:\n");
+    for(i = 0; i < 5; i++) {
+        printf("numeros[%d] = %d\n", i, numeros[i]);
+    }
+    
+    // Calculando a soma
+    int soma = 0;
+    for(i = 0; i < 5; i++) {
+        soma += numeros[i];
+    }
+    printf("Soma dos elementos: %d\n", soma);
+    
+    return 0;
+}</code></pre>
+        </div>
+    </section>
 
-            // Mostra uma seção específica
-            function showSection(sectionId) {
-                if (sectionsContent[sectionId]) {
-                    // Esconde os cartões
-                    cardsContainer.style.display = 'none';
-                    
-                    // Mostra o container de conteúdo
-                    contentContainer.style.display = 'block';
-                    
-                    // Injeta o conteúdo da seção
-                    contentContainer.innerHTML = sectionsContent[sectionId];
-                    
-                    // Mostra o botão de voltar
-                    backButton.style.display = 'block';
-                    
-                    // Atualiza o subtítulo
-                    const cardTitle = document.querySelector(`.card[data-section="${sectionId}"] h3`).textContent;
-                    subtitle.textContent = cardTitle;
-                    
-                    // Rolagem para o topo
-                    window.scrollTo(0, 0);
-                }
-            }
-
-            // Esconde o conteúdo e mostra os cartões novamente
-            function hideContent() {
-                contentContainer.style.display = 'none';
-                cardsContainer.style.display = 'block';
-                backButton.style.display = 'none';
-                subtitle.textContent = 'Selecione um tópico para estudar';
-            }
-
-            // Verifica se há um hash na URL ao carregar a página
-            if (window.location.hash) {
-                const sectionId = window.location.hash.substring(1);
-                if (sectionsContent[sectionId]) {
-                    showSection(sectionId);
-                }
-            }
-        });
-    </script>
+    <section id="conclusao">
+        <h2>7. Conclusão</h2>
+        <p>Vetores são estruturas fundamentais na programação, oferecendo acesso rápido a elementos através de índices. Embora tenham limitações em relação ao tamanho fixo e operações de inserção/remoção, são extremamente eficientes para muitos cenários e servem como base para estruturas de dados mais complexas.</p>
+        <p>O entendimento sólido de vetores é essencial para qualquer programador, sendo frequentemente utilizado em algoritmos e como componente de outras estruturas de dados.</p>
+    </section>
 </body>
 </html>

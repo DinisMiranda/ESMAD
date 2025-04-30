@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetores e Geometria Analítica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        .definition {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .formula {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: center;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .vector {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .important {
+            background-color: #fffde7;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .property {
+            background-color: #e8f5e9;
+            padding: 10px;
+            border-left: 4px solid #4caf50;
+            margin: 15px 0;
+        }
+        .theorem {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196f3;
+            margin: 20px 0;
+        }
+        .exercise {
+            background-color: #ffebee;
+            padding: 15px;
+            border-left: 4px solid #f44336;
+            margin: 20px 0;
+        }
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vetores e Geometria Analítica</h1>
+
+    <section id="espaco-afim">
+        <h2>1. Espaço Afim</h2>
+        
+        <div class="definition">
+            <p>O <strong>espaço afim</strong> é uma estrutura onde se definem vetores. A cada par de pontos P, Q ∈ ℝⁿ associa-se um vetor PQ⃗.</p>
+            <p>Para cada ponto P e cada vetor ⃗v existe um e um só ponto Q tal que ⃗v = PQ⃗.</p>
+        </div>
+        
+        <div class="theorem">
+            <h3>Relação de Chasles</h3>
+            <p>Dados P, Q, R três pontos, tem-se que:</p>
+            <div class="formula">
+                PQ⃗ + QR⃗ = PR⃗
+            </div>
+        </div>
+        
+        <div class="figure">
+            <h4>Representação de vetores em diferentes dimensões</h4>
+            <p>Vetor numa reta:</p>
+            <p>Vetor no plano:</p>
+            <p>Vetor no espaço:</p>
+        </div>
+    </section>
+
+    <section id="operacoes-vetoriais">
+        <h2>2. Operações com Vetores</h2>
+        
+        <table>
+            <tr>
+                <th>Operação</th>
+                <th>Definição</th>
+                <th>Propriedades</th>
+            </tr>
+            <tr>
+                <td>Igualdade</td>
+                <td>u⃗ = (u₁, u₂, u₃) = (v₁, v₂, v₃) ⇔ u₁ = v₁ ∧ u₂ = v₂ ∧ u₃ = v₃</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Adição</td>
+                <td>u⃗ + ⃗v = (u₁ + v₁, u₂ + v₂, u₃ + v₃)</td>
+                <td>Comutativa, Associativa</td>
+            </tr>
+            <tr>
+                <td>Multiplicação por escalar</td>
+                <td>k · u⃗ = (ku₁, ku₂, ku₃)</td>
+                <td>Distributiva</td>
+            </tr>
+            <tr>
+                <td>Produto escalar</td>
+                <td>u⃗ · ⃗v = u₁v₁ + u₂v₂ + u₃v₃</td>
+                <td>Comutativo, Distributivo</td>
+            </tr>
+        </table>
+        
+        <div class="property">
+            <h3>Norma e Ângulo entre Vetores</h3>
+            <div class="formula">
+                ∥u⃗∥ = √(u₁² + u₂² + u₃²)
+            </div>
+            <div class="formula">
+                θ = cos⁻¹(u⃗ · ⃗v / (∥u⃗∥ · ∥⃗v∥))
+            </div>
+            <p>Vetores ortogonais: u⃗ · ⃗v = 0</p>
+            <p>Vetores unitários: ∥u⃗∥ = 1</p>
+        </div>
+    </section>
+
+    <section id="produto-vetorial">
+        <h2>3. Produto Vetorial e Misto</h2>
+        
+        <div class="definition">
+            <h3>Produto Vetorial</h3>
+            <div class="formula">
+                u⃗ × ⃗v = det⎡i⃗ j⃗ k⃗⎤
+                             ⎢u₁ u₂ u₃⎥
+                             ⎣v₁ v₂ v₃⎦
+            </div>
+            <p>Resulta em um vetor perpendicular a u⃗ e ⃗v. Se colineares, u⃗ × ⃗v = ⃗0.</p>
+        </div>
+        
+        <div class="definition">
+            <h3>Produto Misto</h3>
+            <div class="formula">
+                u⃗ · (⃗v × w⃗) = det⎡u₁ u₂ u₃⎤
+                                   ⎢v₁ v₂ v₃⎥
+                                   ⎣w₁ w₂ w₃⎦
+            </div>
+            <p>Representa o volume do paralelepípedo definido pelos três vetores.</p>
+        </div>
+    </section>
+
+    <section id="retas">
+        <h2>4. Retas no Espaço</h2>
+        
+        <div class="definition">
+            <p>Dado um ponto P e um vetor u⃗ não nulo, a <strong>reta</strong> que passa por P com direção u⃗ é o conjunto:</p>
+            <div class="formula">
+                L(P, u⃗) = {P + ku⃗ | k ∈ ℝ}
+            </div>
+        </div>
+        
+        <h3>4.1 Equações da Reta</h3>
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Forma</th>
+            </tr>
+            <tr>
+                <td>Vetorial</td>
+                <td>(x, y, z) = (x₀, y₀, z₀) + k(u₁, u₂, u₃)</td>
+            </tr>
+            <tr>
+                <td>Paramétricas</td>
+                <td>x = x₀ + ku₁<br>y = y₀ + ku₂<br>z = z₀ + ku₃</td>
+            </tr>
+            <tr>
+                <td>Cartesianas</td>
+                <td>(x - x₀)/u₁ = (y - y₀)/u₂ = (z - z₀)/u₃</td>
+            </tr>
+        </table>
+        
+        <div class="exercise">
+            <h3>Exercício Resolvido</h3>
+            <p>Verifique se P = (2, -1, 4) pertence à reta L(Q, ⃗v) com Q = (-3, 1, 1) e ⃗v = (1, -2, 3).</p>
+            <p><strong>Solução:</strong> O sistema resultante é inconsistente, portanto P não pertence à reta.</p>
+        </div>
+    </section>
+
+    <section id="planos">
+        <h2>5. Planos no Espaço</h2>
+        
+        <div class="definition">
+            <p>Dado um ponto P e dois vetores u⃗, ⃗v linearmente independentes, o <strong>plano</strong> que contém P gerado por u⃗ e ⃗v é:</p>
+            <div class="formula">
+                α = {P + su⃗ + t⃗v | s, t ∈ ℝ}
+            </div>
+        </div>
+        
+        <h3>5.1 Equações do Plano</h3>
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Forma</th>
+            </tr>
+            <tr>
+                <td>Vetorial</td>
+                <td>(x, y, z) = (x₀, y₀, z₀) + s(u₁, u₂, u₃) + t(v₁, v₂, v₃)</td>
+            </tr>
+            <tr>
+                <td>Paramétricas</td>
+                <td>x = x₀ + su₁ + tv₁<br>y = y₀ + su₂ + tv₂<br>z = z₀ + su₃ + tv₃</td>
+            </tr>
+            <tr>
+                <td>Cartesiana</td>
+                <td>a(x - x₀) + b(y - y₀) + c(z - z₀) = 0<br>onde (a, b, c) = u⃗ × ⃗v</td>
+            </tr>
+        </table>
+        
+        <div class="exercise">
+            <h3>Exercício Resolvido</h3>
+            <p>Verifique se o ponto Q = (2, 0, 3) pertence ao plano definido por P = (1, 1, 1), u⃗ = (2, -1, 3), ⃗v = (-1, 0, 2).</p>
+            <p><strong>Solução:</strong> O sistema não tem solução, portanto Q não pertence ao plano.</p>
+        </div>
+    </section>
+
+    <section id="distancias">
+        <h2>6. Distâncias</h2>
+        
+        <div class="property">
+            <h3>6.1 Distância de Ponto a Reta</h3>
+            <p>Para L(P, u⃗) e Q ∉ L:</p>
+            <ol>
+                <li>Encontre I ∈ L tal que QI⃗ ⊥ u⃗</li>
+                <li>Calcule ∥QI⃗∥</li>
+            </ol>
+        </div>
+        
+        <div class="property">
+            <h3>6.2 Distância entre Retas</h3>
+            <p>Para retas r₁ e r₂:</p>
+            <ul>
+                <li>Concorrentes: d(r₁, r₂) = 0</li>
+                <li>Paralelas: d(r₁, r₂) = d(P ∈ r₁, r₂)</li>
+                <li>Reversas: Use plano que contém r₂ e é paralelo a r₁</li>
+            </ul>
+        </div>
+        
+        <div class="exercise">
+            <h3>Exercício Resolvido</h3>
+            <p>Calcule a distância entre as retas r₁: (1,2,0) + k(-1,3,2) e r₂: {y=1-3x, z=-1-2x}.</p>
+            <p><strong>Solução:</strong> As retas são paralelas e a distância é √91/7.</p>
+        </div>
+    </section>
+
+    <section id="superficies">
+        <h2>7. Superfícies de Revolução</h2>
+        
+        <div class="definition">
+            <p>Uma <strong>superfície de revolução</strong> é gerada pela rotação de uma curva (geratriz) em torno de um eixo fixo.</p>
+        </div>
+        
+        <div class="example">
+            <h3>Exemplos:</h3>
+            <ul>
+                <li>Reta paralela ao eixo Oz → Cilindro circular</li>
+                <li>Reta oblíqua ao eixo Oz → Cone</li>
+                <li>Reta inclinada em relação a eixo não paralelo → Superfície complexa</li>
+            </ul>
+        </div>
+        
+        <div class="figure">
+            <h4>Representação de superfícies de revolução</h4>
+            <p>Cilindro gerado por rotação de reta paralela</p>
+            <p>Cone gerado por rotação de reta oblíqua</p>
+        </div>
+    </section>
+
+    <section id="conclusao">
+        <h2>Conclusão</h2>
+        <div class="important">
+            <p>A Geometria Analítica combina álgebra e geometria através do estudo de vetores e suas aplicações. Os conceitos apresentados formam a base para:</p>
+            <ul>
+                <li>Álgebra Linear</li>
+                <li>Cálculo Vetorial</li>
+                <li>Física Matemática</li>
+                <li>Computação Gráfica</li>
+                <li>Engenharia e Ciências Aplicadas</li>
+            </ul>
+            <p>O domínio destes tópicos é essencial para a resolução de problemas espaciais e multidimensionais em diversas áreas do conhecimento.</p>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetores na Matemática - Tópicos Avançados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        .definition {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .formula {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: center;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .vector {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .important {
+            background-color: #fffde7;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .property {
+            background-color: #e8f5e9;
+            padding: 10px;
+            border-left: 4px solid #4caf50;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vetores na Matemática - Tópicos Avançados</h1>
+
+    <section id="vetores-unitarios">
+        <h2>1. Vetores Unitários</h2>
+        
+        <div class="definition">
+            <p>Um <span class="vector">vetor unitário</span> é um vetor com módulo igual a 1. São fundamentais para representar direções sem considerar magnitude.</p>
+        </div>
+        
+        <h3>1.1 Como obter um vetor unitário</h3>
+        <div class="formula">
+            <strong>û</strong> = <strong>v</strong> / |<strong>v</strong>|
+        </div>
+        <p>Onde <strong>v</strong> é um vetor não nulo e |<strong>v</strong>| é seu módulo.</p>
+        
+        <div class="example">
+            <h4>Exemplo:</h4>
+            <p>Dado <strong>v</strong> = (3, 4):</p>
+            <div class="formula">
+                |<strong>v</strong>| = √(3² + 4²) = 5
+            </div>
+            <div class="formula">
+                <strong>û</strong> = (3/5, 4/5) = (0.6, 0.8)
+            </div>
+        </div>
+        
+        <h3>1.2 Vetores unitários canônicos</h3>
+        <p>Em ℝ³:</p>
+        <div class="formula">
+            <strong>i</strong> = (1, 0, 0)<br>
+            <strong>j</strong> = (0, 1, 0)<br>
+            <strong>k</strong> = (0, 0, 1)
+        </div>
+        <p>Qualquer vetor pode ser expresso como combinação linear destes vetores.</p>
+    </section>
+
+    <section id="angulos">
+        <h2>2. Ângulos entre Vetores</h2>
+        
+        <div class="definition">
+            <p>O ângulo θ entre dois vetores não nulos <strong>u</strong> e <strong>v</strong> pode ser determinado através do produto escalar:</p>
+        </div>
+        
+        <div class="formula">
+            cosθ = (<strong>u</strong> · <strong>v</strong>) / (|<strong>u</strong>||<strong>v</strong>|)
+        </div>
+        
+        <h3>2.1 Casos especiais</h3>
+        <table>
+            <tr>
+                <th>Ângulo</th>
+                <th>Condição</th>
+                <th>Interpretação</th>
+            </tr>
+            <tr>
+                <td>0°</td>
+                <td><strong>u</strong> · <strong>v</strong> = |<strong>u</strong>||<strong>v</strong>|</td>
+                <td>Vetores paralelos e mesmo sentido</td>
+            </tr>
+            <tr>
+                <td>90°</td>
+                <td><strong>u</strong> · <strong>v</strong> = 0</td>
+                <td>Vetores perpendiculares</td>
+            </tr>
+            <tr>
+                <td>180°</td>
+                <td><strong>u</strong> · <strong>v</strong> = -|<strong>u</strong>||<strong>v</strong>|</td>
+                <td>Vetores paralelos e sentidos opostos</td>
+            </tr>
+        </table>
+        
+        <div class="example">
+            <h4>Exemplo:</h4>
+            <p>Calcular o ângulo entre <strong>u</strong> = (1, 2, 3) e <strong>v</strong> = (-2, 1, 1)</p>
+            <div class="formula">
+                <strong>u</strong> · <strong>v</strong> = (1)(-2) + (2)(1) + (3)(1) = -2 + 2 + 3 = 3
+            </div>
+            <div class="formula">
+                |<strong>u</strong>| = √(1² + 2² + 3²) = √14 ≈ 3.7417
+            </div>
+            <div class="formula">
+                |<strong>v</strong>| = √((-2)² + 1² + 1²) = √6 ≈ 2.4495
+            </div>
+            <div class="formula">
+                cosθ = 3 / (3.7417 × 2.4495) ≈ 0.3273
+            </div>
+            <div class="formula">
+                θ ≈ arccos(0.3273) ≈ 70.89°
+            </div>
+        </div>
+    </section>
+
+    <section id="perpendicularidade">
+        <h2>3. Perpendicularidade entre Vetores</h2>
+        
+        <div class="definition">
+            <p>Dois vetores são perpendiculares (ortogonais) quando o ângulo entre eles é 90°.</p>
+        </div>
+        
+        <div class="property">
+            <h3>Condição de perpendicularidade:</h3>
+            <div class="formula">
+                <strong>u</strong> · <strong>v</strong> = 0
+            </div>
+        </div>
+        
+        <h3>3.1 Como encontrar um vetor perpendicular</h3>
+        <p>Dado um vetor <strong>v</strong> = (a, b), um vetor perpendicular é:</p>
+        <div class="formula">
+            <strong>u</strong> = (-b, a) ou <strong>u</strong> = (b, -a)
+        </div>
+        
+        <div class="example">
+            <h4>Exemplo em 2D:</h4>
+            <p>Para <strong>v</strong> = (3, 4), vetores perpendiculares:</p>
+            <div class="formula">
+                <strong>u</strong> = (-4, 3) ou <strong>w</strong> = (4, -3)
+            </div>
+            <p>Verificação: 3×(-4) + 4×3 = -12 + 12 = 0</p>
+        </div>
+        
+        <h3>3.2 Perpendicularidade em 3D</h3>
+        <p>Em ℝ³, o produto vetorial fornece um vetor perpendicular a dois vetores dados:</p>
+        <div class="formula">
+            <strong>w</strong> = <strong>u</strong> × <strong>v</strong> é perpendicular a <strong>u</strong> e <strong>v</strong>
+        </div>
+        
+        <div class="example">
+            <h4>Exemplo em 3D:</h4>
+            <p>Para <strong>u</strong> = (1, 0, 0) e <strong>v</strong> = (0, 1, 0):</p>
+            <div class="formula">
+                <strong>u</strong> × <strong>v</strong> = (0·0 - 0·1, 0·0 - 1·0, 1·1 - 0·0) = (0, 0, 1)
+            </div>
+            <p>O vetor resultante (0, 0, 1) é de fato perpendicular aos dois vetores iniciais.</p>
+        </div>
+    </section>
+
+    <section id="projecoes">
+        <h2>4. Projeções Ortogonais</h2>
+        
+        <div class="definition">
+            <p>A projeção ortogonal de um vetor <strong>v</strong> sobre um vetor <strong>u</strong> é dada por:</p>
+        </div>
+        
+        <div class="formula">
+            proj<sub><strong>u</strong></sub><strong>v</strong> = (<strong>u</strong> · <strong>v</strong> / |<strong>u</strong>|²) <strong>u</strong>
+        </div>
+        
+        <h3>4.1 Componente ortogonal</h3>
+        <p>A parte de <strong>v</strong> que é perpendicular a <strong>u</strong>:</p>
+        <div class="formula">
+            <strong>v</strong><sub>⊥</sub> = <strong>v</strong> - proj<sub><strong>u</strong></sub><strong>v</strong>
+        </div>
+        
+        <div class="example">
+            <h4>Exemplo:</h4>
+            <p>Projetar <strong>v</strong> = (2, 3) sobre <strong>u</strong> = (4, 0):</p>
+            <div class="formula">
+                <strong>u</strong> · <strong>v</strong> = 4×2 + 0×3 = 8
+            </div>
+            <div class="formula">
+                |<strong>u</strong>|² = 4² + 0² = 16
+            </div>
+            <div class="formula">
+                proj<sub><strong>u</strong></sub><strong>v</strong> = (8/16)(4, 0) = (2, 0)
+            </div>
+            <div class="formula">
+                <strong>v</strong><sub>⊥</sub> = (2,3) - (2,0) = (0,3)
+            </div>
+        </div>
+    </section>
+
+    <section id="aplicacoes-avancadas">
+        <h2>5. Aplicações Avançadas</h2>
+        
+        <h3>5.1 Vetores Normais a Planos</h3>
+        <p>Em geometria analítica, um vetor normal a um plano é perpendicular a todos os vetores do plano.</p>
+        <div class="formula">
+            Equação do plano: <strong>n</strong> · (<strong>r</strong> - <strong>r</strong><sub>0</sub>) = 0
+        </div>
+        <p>Onde <strong>n</strong> é o vetor normal e <strong>r</strong><sub>0</sub> é um ponto do plano.</p>
+        
+        <h3>5.2 Decomposição de Forças</h3>
+        <p>Em física, decompor vetores em componentes perpendiculares é essencial para análise de forças.</p>
+        
+        <h3>5.3 Rotação de Vetores</h3>
+        <p>Em ℝ², a rotação de um vetor por um ângulo θ:</p>
+        <div class="formula">
+            x' = x cosθ - y sinθ<br>
+            y' = x sinθ + y cosθ
+        </div>
+        
+        <div class="important">
+            <h3>Importância na Computação Gráfica:</h3>
+            <p>Vetores unitários são fundamentais para cálculos de iluminação, reflexão e sistemas de coordenadas de câmera em gráficos 3D.</p>
+        </div>
+    </section>
+
+    <section id="exercicios">
+        <h2>6. Exercícios Propostos</h2>
+        
+        <div class="example">
+            <h3>1. Vetores Unitários</h3>
+            <p>Dado <strong>v</strong> = (1, -2, 2):</p>
+            <ol type="a">
+                <li>Calcule seu módulo</li>
+                <li>Encontre o vetor unitário na mesma direção</li>
+                <li>Encontre um vetor unitário na direção oposta</li>
+            </ol>
+        </div>
+        
+        <div class="example">
+            <h3>2. Perpendicularidade</h3>
+            <p>Para <strong>u</strong> = (3, -1, 4):</p>
+            <ol type="a">
+                <li>Encontre dois vetores diferentes que sejam perpendiculares a <strong>u</strong></li>
+                <li>Verifique sua perpendicularidade usando o produto escalar</li>
+            </ol>
+        </div>
+        
+        <div class="example">
+            <h3>3. Ângulos</h3>
+            <p>Determine o ângulo entre:</p>
+            <ol type="a">
+                <li><strong>a</strong> = (1, 0) e <strong>b</strong> = (0, 1)</li>
+                <li><strong>c</strong> = (1, 1, 0) e <strong>d</strong> = (0, 1, 1)</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="conclusao">
+        <h2>7. Conclusão</h2>
+        <div class="important">
+            <p>O estudo aprofundado de vetores unitários, ângulos entre vetores e perpendicularidade é essencial para diversas áreas da matemática aplicada e física. Estes conceitos formam a base para:</p>
+            <ul>
+                <li>Álgebra Linear avançada</li>
+                <li>Geometria Analítica no espaço</li>
+                <li>Mecânica Clássica e Quântica</li>
+                <li>Computação Gráfica 3D</li>
+                <li>Processamento de Sinais</li>
+            </ul>
+            <p>O domínio destes tópicos permite resolver problemas complexos de orientação espacial, decomposição de forças e transformações geométricas.</p>
+        </div>
+    </section>
+</body>
+</html>
